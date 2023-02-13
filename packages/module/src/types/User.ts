@@ -1,4 +1,4 @@
-export type User = {
+export interface User {
     entitlements: {
       [key: string]: {
         is_entitled: boolean;

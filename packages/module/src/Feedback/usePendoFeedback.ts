@@ -1,9 +1,9 @@
-//import { useEffect } from 'react';
+// import { useEffect } from 'react';
 // import { spinUpStore } from '../../redux/redux-config';
 // import { setPendoFeedbackFlag } from '../../redux/actions';
 
 const usePendoFeedback = () => {
-  //TODO: Reenable Pendo Feedback. Without 
+  // Remove pendo feedback in favor of having a user provide either a URL or callback function. 
   /**
    * We have to use the "spinUpStore" instead of just calling useDispatch
    * Otherwise we will end up using the "dispatch" instance from the application not chrome!

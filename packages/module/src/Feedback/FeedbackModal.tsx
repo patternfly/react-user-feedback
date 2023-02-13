@@ -14,23 +14,22 @@ import {
   TextVariants,
 } from '@patternfly/react-core';
 import { ExternalLinkAltIcon, OutlinedCommentsIcon } from '@patternfly/react-icons';
-import { ChromeUser } from '@redhat-cloud-services/types';
-import { useDispatch, useSelector } from 'react-redux';
+import { User } from '../types/User';
 import { useIntl } from 'react-intl';
 import { DeepRequired } from 'utility-types';
 
-import feedbackIllo from '../../../static/images/feedback_illo.svg';
-import FeedbackForm from './FeedbackForm';
-import { toggleFeedbackModal } from '../../redux/actions';
-import { ReduxState } from '../../redux/store';
+import feedbackIllo from '../images/feedback_illo.svg';
+import { FeedbackForm } from './FeedbackForm';
 import FeedbackSuccess from './FeedbackSuccess';
-import messages from '../../locales/Messages';
+import messages from '../locales/Messages';
 import FeedbackError from './FeedbackError';
 
 import './Feedback.scss';
 
-export type FeedbackModalProps = {
-  user: DeepRequired<ChromeUser>;
+export interface FeedbackModalProps {
+  user: DeepRequired<User>;
+  isOpen: boolean;
+  onClose: () => void;
 };
 
 export type FeedbackPages =
@@ -43,17 +42,20 @@ export type FeedbackPages =
   | 'bugReportSuccess'
   | 'informDirectionSuccess';
 
-const FeedbackModal = memo(({ user }: FeedbackModalProps) => {
+const FeedbackModal = memo(({ user, isOpen, onClose }: FeedbackModalProps) => {
   const intl = useIntl();
-  const usePendoFeedback = useSelector<ReduxState, boolean | undefined>(({ chrome: { usePendoFeedback } }) => usePendoFeedback);
-  const isOpen = useSelector<ReduxState, boolean | undefined>(({ chrome: { isFeedbackModalOpen } }) => isFeedbackModalOpen);
-  const dispatch = useDispatch();
+
+  const [modalOpen, setModalOpen] = useState<boolean>(isOpen);
+  // const usePendoFeedback = useSelector<ReduxState, boolean | undefined>(({ chrome: { usePendoFeedback } }) => usePendoFeedback);
+  // const isOpen = useSelector<ReduxState, boolean | undefined>(({ chrome: { isFeedbackModalOpen } }) => isFeedbackModalOpen);
+  // const dispatch = useDispatch();
   const [modalPage, setModalPage] = useState<FeedbackPages>('feedbackHome');
-  const env = window.insights.chrome.getEnvironment();
-  const isAvailable = env === 'prod' || env === 'stage';
-  const setIsModalOpen = (isOpen: boolean) => dispatch(toggleFeedbackModal(isOpen));
+  // const env = window.insights.chrome.getEnvironment();
+  // const isAvailable = env === 'prod' || env === 'stage';
+  // const setIsModalOpen = (isOpen: boolean) => dispatch(toggleFeedbackModal(isOpen));
   const handleCloseModal = () => {
-    setIsModalOpen(false), setModalPage('feedbackHome');
+    setModalOpen(false);
+    onClose();
   };
 
   const ModalDescription = ({ modalPage }: { modalPage: FeedbackPages }) => {
@@ -209,7 +211,7 @@ const FeedbackModal = memo(({ user }: FeedbackModalProps) => {
         <OutlinedCommentsIcon />
         {intl.formatMessage(messages.feedback)}
       </Button>
-      <Modal aria-label="Feedback modal" isOpen={isOpen} className="chr-c-feedback-modal" variant={ModalVariant.large} onClose={handleCloseModal}>
+      <Modal aria-label="Feedback modal" isOpen={modalOpen} className="chr-c-feedback-modal" variant={ModalVariant.large} onClose={handleCloseModal}>
         <Grid>
           <GridItem span={8} rowSpan={12}>
             <ModalDescription modalPage={modalPage} />
@@ -218,7 +220,6 @@ const FeedbackModal = memo(({ user }: FeedbackModalProps) => {
             <img alt="feedback illustration" src={feedbackIllo} />
           </GridItem>
         </Grid>
-        {!isAvailable && <Label color="red"> {intl.formatMessage(messages.submitOnlyInStageProd)} </Label>}
       </Modal>
     </React.Fragment>
   );

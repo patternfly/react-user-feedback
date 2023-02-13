@@ -3,15 +3,15 @@ import { Button, Text, TextContent, TextVariants } from '@patternfly/react-core'
 import CheckIcon from '@patternfly/react-icons/dist/js/icons/check-icon';
 import { useIntl } from 'react-intl';
 
-import messages from '../../locales/Messages';
+import messages from '../locales/Messages';
 
 import './Feedback.scss';
 
-export type FeedbackSuccessProps = {
+export interface FeedbackSuccessProps {
   onCloseModal: () => void;
   successTitle: string;
   successDescription: string;
-};
+}
 
 const FeedbackSuccess = ({ onCloseModal, successTitle, successDescription }: FeedbackSuccessProps) => {
   const intl = useIntl();

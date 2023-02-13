@@ -13,16 +13,15 @@ import {
   TextVariants,
 } from '@patternfly/react-core';
 import { DeepRequired } from 'utility-types';
-import { ChromeUser } from '@redhat-cloud-services/types';
+import { User } from '../types/User';
 import { useIntl } from 'react-intl';
 
-import messages from '../../locales/Messages';
-import { getEnv, getUrl, isProd } from '../../utils/common';
+import messages from '../locales/Messages';
 
 import './Feedback.scss';
 
-export type FeedbackFormProps = {
-  user: DeepRequired<ChromeUser>;
+export interface FeedbackFormProps {
+  user: DeepRequired<User>;
   onCloseModal: () => void;
   onSubmit: () => void;
   onClickBack: () => void;
@@ -34,9 +33,9 @@ export type FeedbackFormProps = {
   checkboxDescription: string;
   textAreaHidden?: boolean;
   submitTitle: string;
-};
+}
 
-const FeedbackForm = ({
+export const FeedbackForm = ({
   user,
   onCloseModal,
   onSubmit,
@@ -53,38 +52,12 @@ const FeedbackForm = ({
   const intl = useIntl();
   const [textAreaValue, setTextAreaValue] = useState('');
   const [checked, setChecked] = useState(false);
-  const env = getEnv();
-  const app = getUrl('app');
-  const bundle = getUrl('bundle');
-  const isAvailable = env === 'prod' || env === 'stage';
-  const addFeedbackTag = () => (isProd() ? `[${bundle}]` : '[PRE-PROD]');
 
   async function handleModalSubmission() {
-    const token = await window.insights.chrome.auth.getToken();
-    if (isAvailable) {
-      try {
-        await fetch(`${window.origin}/api/platform-feedback/v1/issues`, {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            description: `${feedbackType} ${textAreaValue}, Username: ${user.identity.user.username}, Account ID: ${
-              user.identity.account_number
-            }, Email: ${checked ? user.identity.user.email : ''}, URL: ${window.location.href}`, //eslint-disable-line
-            summary: `${addFeedbackTag()} App Feedback`,
-            labels: [app, bundle],
-          }),
-        }).then((response) => response.json());
-        onSubmit();
-      } catch (err) {
-        console.error(err);
-        handleFeedbackError();
-      }
-    } else {
-      console.log('Submitting feedback only works in prod and stage');
+    try {
+      onSubmit();
+    } catch (err) {
+      handleFeedbackError();
     }
   }
 
@@ -136,6 +109,7 @@ const FeedbackForm = ({
           className="chr-c-feedback-footer-button"
           key="confirm"
           variant="primary"
+          // eslint-disable-next-line no-nested-ternary
           isDisabled={feedbackType !== '[Research Opportunities]' ? (textAreaValue.length > 1 ? false : true) : !checked}
           onClick={handleModalSubmission}
         >
@@ -151,5 +125,3 @@ const FeedbackForm = ({
     </div>
   );
 };
-
-export default FeedbackForm;

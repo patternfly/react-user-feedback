@@ -28,12 +28,12 @@
   "publishConfig": {
     "access": "public"
   },
+  "resolutions": {
+    "@patternfly/react-icons": "4.93.6"
+  },
   "dependencies": {
     "@patternfly/react-core": "^4.276.6",
-    "@patternfly/react-icons": "^4.93.6",
-    "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^1.2.6",
-    "@redhat-cloud-services/frontend-components-config-utilities": "^1.5.25",
-    "@redhat-cloud-services/types": "^0.0.18",
+    "@patternfly/react-icons": "4.93.6",
     "react-intl": "^5.25.1"
   },
   "peerDependencies": {

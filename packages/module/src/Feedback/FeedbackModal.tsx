@@ -6,7 +6,6 @@ import {
   CardTitle,
   Grid,
   GridItem,
-  Label,
   Modal,
   ModalVariant,
   Text,
@@ -203,9 +202,9 @@ const FeedbackModal = memo(({ user, isOpen, onClose }: FeedbackModalProps) => {
         ouiaId="feedback-button"
         className="chr-c-button-feedback"
         onClick={() => {
-          if (!usePendoFeedback) {
-            setIsModalOpen(true);
-          }
+          // if (!usePendoFeedback) {
+          //   setIsModalOpen(true);
+          // }
         }}
       >
         <OutlinedCommentsIcon />

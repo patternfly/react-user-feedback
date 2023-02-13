@@ -1,5 +1,5 @@
 {
-  "name": "@patternfly/react-feedback",
+  "name": "@patternfly/react-user-feedback",
   "version": "1.0.0",
   "description": "A feedback extension to allow users to provide input on products.",
   "main": "dist/esm/index.js",
@@ -15,13 +15,13 @@
     "test:a11y": "patternfly-a11y --config patternfly-a11y.config",
     "serve:a11y": "yarn serve coverage"
   },
-  "repository": "git+https://github.com/patternfly/react-feedback.git",
+  "repository": "git+https://github.com/patternfly/react-user-feedback.git",
   "author": "Red Hat",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/patternfly/react-feedback/issues"
+    "url": "https://github.com/patternfly/react-user-feedback/issues"
   },
-  "homepage": "https://github.com/patternfly/react-feedback#readme",
+  "homepage": "https://github.com/patternfly/react-user-feedback#readme",
   "release": {
     "branches": "main"
   },

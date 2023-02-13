@@ -1,4 +1,11 @@
 import React from 'react';
-import { ExtendedButton } from '@patternfly/react-feedback';
+import { FeedbackModal, User } from '@patternfly/react-user-feedback';
 
-export const BasicExample: React.FunctionComponent = () => <ExtendedButton>My custom extension button</ExtendedButton>;
+export const BasicExample: React.FunctionComponent = () => 
+{ const user: User = {
+        email: "test@redhat.com"
+    }
+    return <FeedbackModal user={user} isOpen={false} onClose={function (): void {
+    throw new Error('Function not implemented.');
+} } />;
+}

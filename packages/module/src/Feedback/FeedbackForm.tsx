@@ -96,7 +96,7 @@ export const FeedbackForm = ({
           <div className="pf-u-font-family-heading-sans-serif chr-c-feedback-email">{intl.formatMessage(messages.email)}</div>
           <Panel variant="raised" className="chr-c-feedback-panel">
             <PanelMain>
-              <PanelMainBody className="chr-c-feedback-panel__body">{user.identity.user.email}</PanelMainBody>
+              <PanelMainBody className="chr-c-feedback-panel__body">{user.email}</PanelMainBody>
             </PanelMain>
           </Panel>
         </>

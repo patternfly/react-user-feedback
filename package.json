@@ -1,5 +1,5 @@
 {
-  "name": "@patternfly/react-feedback-root",
+  "name": "@patternfly/react-user-feedback-root",
   "private": true,
   "version": "0.0.0",
   "description": "This library provides patternfly extensions",
@@ -8,18 +8,18 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspace @patternfly/react-feedback build",
-    "build:docs": "yarn workspace @patternfly/react-feedback docs:build",
-    "build:fed:packages": "yarn workspace @patternfly/react-feedback build:fed:packages",
-    "start": "yarn build && concurrently --kill-others \"yarn workspace @patternfly/react-feedback docs:develop\"",
-    "serve:docs": "yarn workspace @patternfly/react-feedback docs:serve",
-    "clean": "yarn workspace @patternfly/react-feedback clean",
+    "build": "yarn workspace @patternfly/react-user-feedback build",
+    "build:docs": "yarn workspace @patternfly/react-user-feedback docs:build",
+    "build:fed:packages": "yarn workspace @patternfly/react-user-feedback build:fed:packages",
+    "start": "yarn build && concurrently --kill-others \"yarn workspace @patternfly/react-user-feedback docs:develop\"",
+    "serve:docs": "yarn workspace @patternfly/react-user-feedback docs:serve",
+    "clean": "yarn workspace @patternfly/react-user-feedback clean",
     "lint:js": "node --max-old-space-size=4096 node_modules/.bin/eslint packages --ext js,jsx,ts,tsx --cache",
     "lint:md": "yarn eslint packages --ext md --no-eslintrc --config .eslintrc-md.json --cache",
     "lint": "yarn lint:js && yarn lint:md",
     "test": "TZ=EST jest packages",
-    "test:a11y": "yarn workspace @patternfly/react-feedback test:a11y",
-    "serve:a11y": "yarn workspace @patternfly/react-feedback serve:a11y"
+    "test:a11y": "yarn workspace @patternfly/react-user-feedback test:a11y",
+    "serve:a11y": "yarn workspace @patternfly/react-user-feedback serve:a11y"
   },
   "devDependencies": {
     "react": "^17",

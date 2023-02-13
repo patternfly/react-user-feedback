@@ -41,7 +41,7 @@ export type FeedbackPages =
   | 'bugReportSuccess'
   | 'informDirectionSuccess';
 
-const FeedbackModal = memo(({ user, isOpen, onClose }: FeedbackModalProps) => {
+export const FeedbackModal = memo(({ user, isOpen, onClose }: FeedbackModalProps) => {
   const intl = useIntl();
 
   const [modalOpen, setModalOpen] = useState<boolean>(isOpen);

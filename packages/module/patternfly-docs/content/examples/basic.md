@@ -12,7 +12,7 @@ source: react
 propComponents: ['FeedBackModal']
 ---
 
-import { ExtendedButton } from "@patternfly/react-user-feedback";
+import { FeedbackModal } from "@patternfly/react-user-feedback";
 
 ## Basic usage
 

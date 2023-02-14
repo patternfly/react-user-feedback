@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoLinkHeader, Example, Link as PatternflyThemeLink } from '@patternfly/documentation-framework/components';
-import { ExtendedButton } from "@patternfly/react-user-feedback";
+import { FeedbackModal } from "@patternfly/react-user-feedback";
 const pageData = {
   "id": "react-user-feedback",
   "section": "extensions",
@@ -18,18 +18,18 @@ const pageData = {
   ]
 };
 pageData.liveContext = {
-  ExtendedButton
+  FeedbackModal
 };
 pageData.relativeImports = {
   
 };
 pageData.examples = {
   'Example': props => 
-    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal, User } from '@patternfly/react-user-feedback';\n\nexport const BasicExample: React.FunctionComponent = () => \n{ const user: User = {\n        email: \"test@redhat.com\"\n    }\n    return <FeedbackModal user={user} isOpen={false} onClose={function (): void {\n    throw new Error('Function not implemented.');\n} } />;\n}\n","title":"Example","lang":"js"}}>
+    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal, User } from '@patternfly/react-user-feedback';\n\nexport const BasicExample: React.FunctionComponent = () => \n{ const user: User = {\n        email: \"test@redhat.com\"\n    }\n    return <FeedbackModal user={user} isOpen={false} onClose={function (): void {;\n} } />;\n}\n","title":"Example","lang":"js"}}>
       
     </Example>,
   'Fullscreen example': props => 
-    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal, User } from '@patternfly/react-user-feedback';\n\nexport const BasicExample: React.FunctionComponent = () => \n{ const user: User = {\n        email: \"test@redhat.com\"\n    }\n    return <FeedbackModal user={user} isOpen={false} onClose={function (): void {\n    throw new Error('Function not implemented.');\n} } />;\n}\n","title":"Fullscreen example","lang":"js","isFullscreen":true}}>
+    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal, User } from '@patternfly/react-user-feedback';\n\nexport const BasicExample: React.FunctionComponent = () => \n{ const user: User = {\n        email: \"test@redhat.com\"\n    }\n    return <FeedbackModal user={user} isOpen={false} onClose={function (): void {;\n} } />;\n}\n","title":"Fullscreen example","lang":"js","isFullscreen":true}}>
       
     </Example>
 };

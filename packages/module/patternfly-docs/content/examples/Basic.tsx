@@ -5,7 +5,6 @@ export const BasicExample: React.FunctionComponent = () =>
 { const user: User = {
         email: "test@redhat.com"
     }
-    return <FeedbackModal user={user} isOpen={false} onClose={function (): void {
-    throw new Error('Function not implemented.');
+    return <FeedbackModal user={user} isOpen={false} onClose={function (): void {;
 } } />;
 }

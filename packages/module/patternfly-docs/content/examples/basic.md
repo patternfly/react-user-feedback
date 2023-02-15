@@ -9,10 +9,10 @@ id: react-user-feedback
 source: react
 # If you use typescript, the name of the interface to display props for
 # These are found through the sourceProps function provided in patternfly-docs.source.js
-propComponents: ['FeedBackModal']
+propComponents: ['FeedbackModal']
 ---
 
-import { FeedbackModal } from "@patternfly/react-user-feedback";
+import { FeedbackModal, User } from "@patternfly/react-user-feedback";
 
 ## Basic usage
 

@@ -5,6 +5,6 @@ export const BasicExample: React.FunctionComponent = () =>
 { const user: User = {
         email: "test@redhat.com"
     }
-    return <FeedbackModal user={user} isOpen={false} onClose={function (): void {;
+    return <FeedbackModal user={user} isOpen={true} onClose={function (): void {;
 } } />;
 }

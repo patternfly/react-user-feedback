@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoLinkHeader, Example, Link as PatternflyThemeLink } from '@patternfly/documentation-framework/components';
-import { FeedbackModal, User } from "@patternfly/react-user-feedback";
+import { FeedbackModal } from "@patternfly/react-user-feedback";
 const pageData = {
   "id": "react-user-feedback",
   "section": "extensions",
@@ -14,49 +14,22 @@ const pageData = {
     {
       "name": "FeedbackModal",
       "description": "",
-      "props": [
-        {
-          "name": "isOpen",
-          "type": "boolean",
-          "description": "",
-          "required": true
-        },
-        {
-          "name": "onClose",
-          "type": "() => void",
-          "description": "",
-          "required": true
-        },
-        {
-          "name": "user",
-          "type": "DeepRequired<User>",
-          "description": "",
-          "required": true
-        }
-      ]
+      "props": []
     }
   ],
   "examples": [
     "Example"
-  ],
-  "fullscreenExamples": [
-    "Fullscreen example"
   ]
 };
 pageData.liveContext = {
-  FeedbackModal,
-  User
+  FeedbackModal
 };
 pageData.relativeImports = {
   
 };
 pageData.examples = {
   'Example': props => 
-    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal, User } from '@patternfly/react-user-feedback';\n\nexport const BasicExample: React.FunctionComponent = () => \n{ const user: User = {\n        email: \"test@redhat.com\"\n    }\n    return <FeedbackModal user={user} isOpen={true} onClose={function (): void {;\n} } />;\n}\n","title":"Example","lang":"js"}}>
-      
-    </Example>,
-  'Fullscreen example': props => 
-    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal, User } from '@patternfly/react-user-feedback';\n\nexport const BasicExample: React.FunctionComponent = () => \n{ const user: User = {\n        email: \"test@redhat.com\"\n    }\n    return <FeedbackModal user={user} isOpen={true} onClose={function (): void {;\n} } />;\n}\n","title":"Fullscreen example","lang":"js","isFullscreen":true}}>
+    <Example {...pageData} {...props} {...{"code":"import React from 'react';\n\nimport { FeedbackModal } from '@patternfly/react-user-feedback';\n\nexport const BasicExample: React.FunctionComponent = () => \n<FeedbackModal user={ {\n        email: \"test@redhat.com\"\n    }} isOpen={true} onClose={function (): void { return; } } />\n","title":"Example","lang":"js"}}>
       
     </Example>
 };
@@ -67,7 +40,6 @@ const Component = () => (
       {`Basic usage`}
     </AutoLinkHeader>
     {React.createElement(pageData.examples["Example"])}
-    {React.createElement(pageData.examples["Fullscreen example"])}
   </React.Fragment>
 );
 Component.displayName = 'ExtensionsReactUserFeedbackReactDocs';

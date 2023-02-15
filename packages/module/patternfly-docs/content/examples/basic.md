@@ -12,18 +12,12 @@ source: react
 propComponents: ['FeedbackModal']
 ---
 
-import { FeedbackModal, User } from "@patternfly/react-user-feedback";
+import { FeedbackModal } from "@patternfly/react-user-feedback";
 
 ## Basic usage
 
 ### Example
 
 ```js file="./Basic.tsx"
-
-```
-
-### Fullscreen example
-
-```js file="./Basic.tsx" isFullscreen
 
 ```

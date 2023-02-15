@@ -1,10 +1,8 @@
 import React from 'react';
-import { FeedbackModal, User } from '@patternfly/react-user-feedback';
+
+import { FeedbackModal } from '@patternfly/react-user-feedback';
 
 export const BasicExample: React.FunctionComponent = () => 
-{ const user: User = {
+<FeedbackModal user={ {
         email: "test@redhat.com"
-    }
-    return <FeedbackModal user={user} isOpen={true} onClose={function (): void {;
-} } />;
-}
+    }} isOpen={true} onClose={function (): void { return; } } />

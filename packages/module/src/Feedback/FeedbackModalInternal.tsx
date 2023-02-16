@@ -13,9 +13,7 @@ import {
   TextVariants,
 } from '@patternfly/react-core';
 import { ExternalLinkAltIcon, OutlinedCommentsIcon } from '@patternfly/react-icons';
-import { User } from '../types/User';
 import { useIntl } from 'react-intl';
-import { DeepRequired } from 'utility-types';
 
 import feedbackIllo from '../images/feedback_illo.svg';
 import { FeedbackForm } from './FeedbackForm';
@@ -37,20 +35,16 @@ export type FeedbackPages =
   | 'bugReportSuccess'
   | 'informDirectionSuccess';
 
-export const FeedbackModalInternal = memo(({ user, isOpen, onClose }: FeedbackModalProps) => {
+export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onClose }: FeedbackModalProps) => {
   const intl = useIntl();
 
   const [modalOpen, setModalOpen] = useState<boolean>(isOpen);
-  // const usePendoFeedback = useSelector<ReduxState, boolean | undefined>(({ chrome: { usePendoFeedback } }) => usePendoFeedback);
-  // const isOpen = useSelector<ReduxState, boolean | undefined>(({ chrome: { isFeedbackModalOpen } }) => isFeedbackModalOpen);
-  // const dispatch = useDispatch();
   const [modalPage, setModalPage] = useState<FeedbackPages>('feedbackHome');
-  // const env = window.insights.chrome.getEnvironment();
-  // const isAvailable = env === 'prod' || env === 'stage';
-  // const setIsModalOpen = (isOpen: boolean) => dispatch(toggleFeedbackModal(isOpen));
   const handleCloseModal = () => {
     setModalOpen(false);
-    onClose();
+    if (onClose) {
+      onClose();
+    }
   };
 
   const ModalDescription = ({ modalPage }: { modalPage: FeedbackPages }) => {
@@ -63,7 +57,7 @@ export const FeedbackModalInternal = memo(({ user, isOpen, onClose }: FeedbackMo
               <Text>{intl.formatMessage(messages.helpUsImproveHCC)}</Text>
             </TextContent>
             <div className="chr-c-feedback-cards">
-              <Card isSelectableRaised isCompact onClick={() => setModalPage('feedbackOne')}>
+              <Card isSelectableRaised isCompact onClick={() => {typeof onShareFeedback === 'string' ? window.open(onShareFeedback, '_blank') :  setModalPage('feedbackOne')}}>
                 <CardTitle className="chr-c-feedback-card-title">{intl.formatMessage(messages.shareFeedback)}</CardTitle>
                 <CardBody>{intl.formatMessage(messages.howIsConsoleExperience)}</CardBody>
               </Card>
@@ -103,7 +97,7 @@ export const FeedbackModalInternal = memo(({ user, isOpen, onClose }: FeedbackMo
       case 'feedbackOne':
         return (
           <FeedbackForm
-            user={user}
+            email={email}
             onCloseModal={handleCloseModal}
             onSubmit={() => setModalPage('feedbackSuccess')}
             onClickBack={() => setModalPage('feedbackHome')}
@@ -118,7 +112,7 @@ export const FeedbackModalInternal = memo(({ user, isOpen, onClose }: FeedbackMo
       case 'reportBugOne':
         return (
           <FeedbackForm
-            user={user}
+            email={email}
             onCloseModal={handleCloseModal}
             onSubmit={() => setModalPage('bugReportSuccess')}
             onClickBack={() => setModalPage('feedbackHome')}
@@ -142,7 +136,7 @@ export const FeedbackModalInternal = memo(({ user, isOpen, onClose }: FeedbackMo
       case 'informDirection':
         return (
           <FeedbackForm
-            user={user}
+            email={email}
             onCloseModal={handleCloseModal}
             onSubmit={() => setModalPage('informDirectionSuccess')}
             onClickBack={() => setModalPage('feedbackHome')}

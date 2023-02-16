@@ -29,7 +29,7 @@ pageData.relativeImports = {
 };
 pageData.examples = {
   'Example': props => 
-    <Example {...pageData} {...props} {...{"code":"import React from 'react';\n\nimport { FeedbackModal } from '@patternfly/react-user-feedback';\n\nexport const BasicExample: React.FunctionComponent = () => \n<FeedbackModal user={ {\n        email: \"test@redhat.com\"\n    }} isOpen={true} onClose={function (): void { return; } } />\n","title":"Example","lang":"js"}}>
+    <Example {...pageData} {...props} {...{"code":"import React from 'react';\n\nimport { FeedbackModal } from '@patternfly/react-user-feedback';\n\nexport const BasicExample: React.FunctionComponent = () => \n<FeedbackModal email= \"test@redhat.com\" onShareFeedback='https://console.redhat.com/self-managed-feedback-form' isOpen={true} onClose={function (): void { return; } } />\n","title":"Example","lang":"js"}}>
       
     </Example>
 };

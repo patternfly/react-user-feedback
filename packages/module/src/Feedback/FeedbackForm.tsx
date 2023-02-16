@@ -12,8 +12,6 @@ import {
   TextContent,
   TextVariants,
 } from '@patternfly/react-core';
-import { DeepRequired } from 'utility-types';
-import { User } from '../types/User';
 import { useIntl } from 'react-intl';
 
 import messages from '../locales/Messages';
@@ -21,7 +19,7 @@ import messages from '../locales/Messages';
 import './Feedback.scss';
 
 export interface FeedbackFormProps {
-  user: DeepRequired<User>;
+  email?: string;
   onCloseModal: () => void;
   onSubmit: () => void;
   onClickBack: () => void;
@@ -36,7 +34,7 @@ export interface FeedbackFormProps {
 }
 
 export const FeedbackForm = ({
-  user,
+  email,
   onCloseModal,
   onSubmit,
   onClickBack,
@@ -93,10 +91,11 @@ export const FeedbackForm = ({
       </Form>
       {checked ? (
         <>
+         {/* TODO: Add code to prompt for email if none is provide along with validation that the email address is valid. */}
           <div className="pf-u-font-family-heading-sans-serif chr-c-feedback-email">{intl.formatMessage(messages.email)}</div>
           <Panel variant="raised" className="chr-c-feedback-panel">
             <PanelMain>
-              <PanelMainBody className="chr-c-feedback-panel__body">{user.email}</PanelMainBody>
+              <PanelMainBody className="chr-c-feedback-panel__body">{email}</PanelMainBody>
             </PanelMain>
           </Panel>
         </>

@@ -1,5 +1,7 @@
 # react-user-feedback
 
+An PatternFly extension used to collect user feedback.
+
 To build & run the development server:
 * yarn install
 * yarn start 

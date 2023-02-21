@@ -66,7 +66,7 @@ export const defaultFeedback : FeedbackLocale =  {
     shareYourFeedback: "Share your feedback with us!",
     somethingWentWrong: "Something went wrong",
     submitFeedback:  "Submit feedback",
-    teamWillReviewBug: "We appreciate your feedback and our team will review your report shorlty",
+    teamWillReviewBug: "We appreciate your feedback and our team will review your report shortly",
     tellAboutExperience: "Tell us about your experience",
     thankYouForFeedback: "Thank you, we appreciate your feedback.",
     thankYouForInterest: "Thank you for your interest in user research. You have been added to our mailing list.",

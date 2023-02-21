@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoLinkHeader, Example, Link as PatternflyThemeLink } from '@patternfly/documentation-framework/components';
-import { FeedbackModal } from "@patternfly/react-user-feedback";
+import { FeedbackModal, FeedbackModalProps, FeedbackLocale } from "@patternfly/react-user-feedback";
 const pageData = {
   "id": "react-user-feedback",
   "section": "extensions",
@@ -12,9 +12,48 @@ const pageData = {
   "relPath": "packages/module/patternfly-docs/content/examples/basic.md",
   "propComponents": [
     {
-      "name": "FeedbackModal",
+      "name": "FeedbackModalProps",
       "description": "",
-      "props": []
+      "props": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email address for the user, if none is provided will default to asking for their email address."
+        },
+        {
+          "name": "feedbackLocal",
+          "type": "FeedbackLocale",
+          "description": "Optional prop to change the default english strings to a string of the user choice."
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Indicates if the modal is visible or not.",
+          "required": true
+        },
+        {
+          "name": "onClose",
+          "type": "() => void",
+          "description": "Optional call back that will be called when the user closes user feedback modal.",
+          "required": true
+        },
+        {
+          "name": "onJoinMailingList",
+          "type": "string| \"()=>{}\"",
+          "description": "If a URL is given the join mailing list link will redirect to another site to join the mailing list. If a function is provided we will display a join mailing list screen with a submit button. If it's undefined then report a bug will be removed from share feedback modal"
+        },
+        {
+          "name": "onReportABug",
+          "type": "string| \"()=>{}\"",
+          "description": "If a URL is given the report a bug link will redirect to another site to report the bug. If a function is provided we will display a feedback screen with a submit button. If it's undefined then join mailing list will be removed from the share feedback modal"
+        },
+        {
+          "name": "onShareFeedback",
+          "type": "string| \"() => {}\"",
+          "description": "If a URL is given the  share feedback link will redirect to another site share feedback. If a function is provided we will display a share feedback screen with a submit button.",
+          "required": true
+        }
+      ]
     }
   ],
   "examples": [
@@ -22,14 +61,16 @@ const pageData = {
   ]
 };
 pageData.liveContext = {
-  FeedbackModal
+  FeedbackModal,
+  FeedbackModalProps,
+  FeedbackLocale
 };
 pageData.relativeImports = {
   
 };
 pageData.examples = {
   'Example': props => 
-    <Example {...pageData} {...props} {...{"code":"import React from 'react';\n\nimport { FeedbackModal } from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\nexport const BasicExample: React.FunctionComponent = () => {\n   const  [isOpen, setIsOpen] = React.useState<boolean>(false);\n   const handleButtonClicked = () => {setIsOpen(!isOpen)}; \n   return <>\n    <Button onClick={handleButtonClicked}>Show Modal</Button>\n    <FeedbackModal \n        email= \"test@redhat.com\" \n        onShareFeedback='https://console.redhat.com/self-managed-feedback-form' \n        // eslint-disable-next-line no-debugger\n        isOpen={isOpen}\n        onClose={handleButtonClicked}/>\n    </>\n}\n","title":"Example","lang":"js"}}>
+    <Example {...pageData} {...props} {...{"code":"import React from 'react';\n\n// eslint-disable-next-line @typescript-eslint/no-unused-vars\nimport { FeedbackModal} from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\nexport const BasicExample: React.FunctionComponent = () => {\n   const  [isOpen, setIsOpen] = React.useState<boolean>(false);\n   const handleButtonClicked = () => {setIsOpen(true)}; \n   return <>\n    <Button onClick={handleButtonClicked}>Show Modal</Button>\n    <FeedbackModal \n        email= \"test@redhat.com\" \n        onShareFeedback='https://console.redhat.com/self-managed-feedback-form' \n        // eslint-disable-next-line no-debugger\n        isOpen={isOpen}\n        onClose={()=>setIsOpen(false)}/>\n    </>\n}\n","title":"Example","lang":"js"}}>
       
     </Example>
 };

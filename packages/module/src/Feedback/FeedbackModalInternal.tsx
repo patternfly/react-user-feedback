@@ -34,13 +34,11 @@ export type FeedbackPages =
   | 'bugReportSuccess'
   | 'informDirectionSuccess';
 
-export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onClose }: FeedbackModalProps) => {
+export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJoinMailingList, onReportABug, onClose }: FeedbackModalProps) => {
   const intl = React.useContext(LocaleContext);
 
-  const [modalOpen, setModalOpen] = useState<boolean>(isOpen);
   const [modalPage, setModalPage] = useState<FeedbackPages>('feedbackHome');
   const handleCloseModal = () => {
-    setModalOpen(false);
     if (onClose) {
       onClose();
     }
@@ -61,11 +59,11 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onC
                 <CardBody>{intl.howIsConsoleExperience}</CardBody>
               </Card>
               <br />
-              <Card isSelectableRaised isCompact onClick={() => setModalPage('reportBugOne')}>
-                <CardTitle className="chr-c-feedback-card-title">{intl.reportABug}</CardTitle>
-                <CardBody>{intl.describeBugUrgentCases}</CardBody>
-              </Card>
-              <br />
+              {onReportABug ? 
+              <><Card isSelectableRaised isCompact onClick={() => { typeof onReportABug === 'string' ? window.open(onReportABug, '_blank') : setModalPage('reportBugOne'); } }>
+                  <CardTitle className="chr-c-feedback-card-title">{intl.reportABug}</CardTitle>
+                  <CardBody>{intl.describeBugUrgentCases}</CardBody>
+                </Card><br /></> : null}
               <Card
                 isSelectableRaised
                 isCompact
@@ -81,12 +79,13 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onC
                 <CardBody>{intl.getSupport}</CardBody>
               </Card>
               <br />
-              <Card isSelectableRaised isCompact onClick={() => setModalPage('informDirection')}>
+              {onJoinMailingList ?
+              <Card isSelectableRaised isCompact onClick={() => {typeof onJoinMailingList ==='string' ? window.open(onReportABug, '_blank') : setModalPage('informDirection')}}>
                 <CardTitle className="chr-c-feedback-card-title">
                   <Text>{intl.informRedhatDirection}</Text>
                 </CardTitle>
                 <CardBody>{intl.learnAboutResearchOpportunities}</CardBody>
-              </Card>
+              </Card>: null }
             </div>
             <Button className="chr-c-feedback-button" ouiaId="cancel-feedback" key="cancel" variant="link" onClick={handleCloseModal}>
               {intl.cancel}
@@ -185,7 +184,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onC
 
   return (
     <React.Fragment>
-      <Modal aria-label="Feedback modal" isOpen={modalOpen} className="chr-c-feedback-modal" variant={ModalVariant.large} onClose={handleCloseModal}>
+      <Modal aria-label="Feedback modal" isOpen={isOpen} className="chr-c-feedback-modal" variant={ModalVariant.large} onClose={handleCloseModal}>
         <Grid>
           <GridItem span={8} rowSpan={12}>
             <ModalDescription modalPage={modalPage} />

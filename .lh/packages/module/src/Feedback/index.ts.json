@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1677002650910,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677005332097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n-export { default as FeedbackModal} from './FeedbackModal';\n+export * from './FeedbackModal';\n export * from '../locales/Locale'\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1677002650910,

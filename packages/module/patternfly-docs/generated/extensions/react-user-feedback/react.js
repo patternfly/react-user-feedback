@@ -29,7 +29,7 @@ pageData.relativeImports = {
 };
 pageData.examples = {
   'Example': props => 
-    <Example {...pageData} {...props} {...{"code":"import React from 'react';\n\nimport { FeedbackModal } from '@patternfly/react-user-feedback';\n\nexport const BasicExample: React.FunctionComponent = () => \n<FeedbackModal email= \"test@redhat.com\" onShareFeedback='https://console.redhat.com/self-managed-feedback-form' isOpen={true} onClose={function (): void { return; } } />\n","title":"Example","lang":"js"}}>
+    <Example {...pageData} {...props} {...{"code":"import React from 'react';\n\nimport { FeedbackModal } from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\nexport const BasicExample: React.FunctionComponent = () => {\n   const  [isOpen, setIsOpen] = React.useState<boolean>(false);\n   const handleButtonClicked = () => {setIsOpen(!isOpen)}; \n   return <>\n    <Button onClick={handleButtonClicked}>Show Modal</Button>\n    <FeedbackModal \n        email= \"test@redhat.com\" \n        onShareFeedback='https://console.redhat.com/self-managed-feedback-form' \n        // eslint-disable-next-line no-debugger\n        isOpen={isOpen}\n        onClose={handleButtonClicked}/>\n    </>\n}\n","title":"Example","lang":"js"}}>
       
     </Example>
 };

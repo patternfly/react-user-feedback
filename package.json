@@ -17,7 +17,8 @@
     "lint:js": "node --max-old-space-size=4096 node_modules/.bin/eslint packages --ext js,jsx,ts,tsx --cache",
     "lint:md": "yarn eslint packages --ext md --no-eslintrc --config .eslintrc-md.json --cache",
     "lint": "yarn lint:js && yarn lint:md",
-    "test": "TZ=EST jest packages",
+    "test": "echo 'TODO: Jest testing'",
+    "test:jest": "TZ=EST jest packages",
     "test:a11y": "yarn workspace @patternfly/react-user-feedback test:a11y",
     "serve:a11y": "yarn workspace @patternfly/react-user-feedback serve:a11y"
   },

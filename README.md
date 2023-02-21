@@ -1,4 +1,4 @@
-# react-feedback
+# react-user-feedback
 
 To build & run the development server:
 * yarn install

@@ -1,0 +1,18 @@
+{
+    "sourceFile": ".github/workflows/release.yml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1677009475557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1677009475557,
+            "name": "Commit-0",
+            "content": "name: release\non:\n  push:\n    branches:\n      - main\njobs:\n  call-build-lint-test-workflow:\n    uses: ./.github/workflows/build-lint-test.yml\n  deploy:\n    runs-on: ubuntu-latest\n    needs: [call-build-lint-test-workflow]\n    env:\n      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}\n      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-node@v1\n        with:\n          node-version: '1'\n      - uses: actions/cache@v2\n        id: yarn-cache\n        name: Cache npm deps\n        with:\n          path: |\n           node_modules\n           **/node_modules\n           ~/.cache/Cypress\n          key: ${{ runner.os }}-yarn-14-${{ secrets.CACHE_VERSION }}-${{ hashFiles('yarn.lock') }}\n      - run: yarn install --frozen-lockfile\n        if: steps.yarn-cache.outputs.cache-hit != 'true'\n      - uses: actions/cache@v2\n        id: dist\n        name: Cache dist\n        with:\n          path: |\n            packages/*/dist\n            packages/react-styles/css\n          key: ${{ runner.os }}-dist-14-${{ secrets.CACHE_VERSION }}-${{ hashFiles('yarn.lock', 'package.json', 'packages/*/*', '!packages/*/dist', '!packages/*/node_modules') }}\n      - name: Build dist\n        run: yarn build\n        if: steps.dist.outputs.cache-hit != 'true'\n      - name: Release to NPM\n        run: cd packages/module && npx semantic-release@19.0.5\n"
+        }
+    ]
+}

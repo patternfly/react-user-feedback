@@ -1,20 +1,23 @@
 module.exports = {
-  '/design-guidelines': {
-    id: "react-feedback",
-    title: "react-feedback",
+  '/extensions/react-user-feedback/design-guidelines': {
+    id: "react-user-feedback",
+    title: "react-user-feedback",
     toc: [{"text":"Header"},[{"text":"Sub-header"}]],
     section: "extensions",
+    subsection: "",
     source: "design-guidelines",
-    Component: () => import(/* webpackChunkName: "design-guidelines/index" */ './design-guidelines')
+    tabName: null,
+    Component: () => import(/* webpackChunkName: "extensions/react-user-feedback/design-guidelines/index" */ './extensions/react-user-feedback/design-guidelines')
   },
-  '/react': {
-    id: "react-feedback",
-    title: "react-feedback",
-    toc: [{"text":"Basic usage"},[{"text":"Example"},{"text":"Fullscreen example"}]],
+  '/extensions/react-user-feedback/react': {
+    id: "react-user-feedback",
+    title: "react-user-feedback",
+    toc: [{"text":"Basic usage"},[{"text":"Example"}]],
     examples: ["Example"],
-    fullscreenExamples: ["Fullscreen example"],
     section: "extensions",
+    subsection: "",
     source: "react",
-    Component: () => import(/* webpackChunkName: "react/index" */ './react')
+    tabName: null,
+    Component: () => import(/* webpackChunkName: "extensions/react-user-feedback/react/index" */ './extensions/react-user-feedback/react')
   }
 };

@@ -1,1 +1,2 @@
-export * from './ExtendedButton';
+export * from './Feedback';
+export * from './locales/Locale';

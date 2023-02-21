@@ -2,11 +2,14 @@ import React from 'react';
 import { AutoLinkHeader, Example, Link as PatternflyThemeLink } from '@patternfly/documentation-framework/components';
 
 const pageData = {
-  "id": "react-feedback",
+  "id": "react-user-feedback",
   "section": "extensions",
+  "subsection": "",
   "source": "design-guidelines",
-  "slug": "/extensions/react-feedback/design-guidelines",
-  "sourceLink": "https://github.com/patternfly/patternfly-org/blob/main/packages/module/patternfly-docs/content/extensions/react-feedback/design-guidelines/design-guidelines.md"
+  "tabName": null,
+  "slug": "/extensions/react-user-feedback/design-guidelines",
+  "sourceLink": "https://github.com/patternfly/patternfly-org/blob/main/packages/module/patternfly-docs/content/design-guidelines/design-guidelines.md",
+  "relPath": "packages/module/patternfly-docs/content/design-guidelines/design-guidelines.md"
 };
 pageData.relativeImports = {
   
@@ -45,7 +48,7 @@ const Component = () => (
     </ol>
   </React.Fragment>
 );
-Component.displayName = 'ExtensionsPatternflyExtensionSeedDesignGuidelinesDocs';
+Component.displayName = 'ExtensionsReactUserFeedbackDesignGuidelinesDocs';
 Component.pageData = pageData;
 
 export default Component;

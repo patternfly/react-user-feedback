@@ -10,7 +10,7 @@ export const BasicExample: React.FunctionComponent = () => {
     <FeedbackModal 
         email= "test@redhat.com" 
         onShareFeedback='https://console.redhat.com/self-managed-feedback-form' 
-        onJoinMailingList=''
+        onJoinMailingList='https://console.redhat.com/self-managed-research-form'
         isOpen={isOpen}
         onClose={()=>setIsOpen(false)}/>
     </>

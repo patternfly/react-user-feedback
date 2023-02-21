@@ -1,0 +1,18 @@
+{
+    "sourceFile": "packages/module/src/Feedback/FeedbackModal.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1677002650875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1677002650875,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport { FeedbackModalInternal } from './FeedbackModalInternal';\nimport { defaultFeedback, FeedbackLocale } from '../locales/Locale';\nimport { LocaleContext } from '../context/LocaleContext';\n\nexport interface FeedbackModalProps {\n    /** Email address for the user, if none is provided will default to asking for their email address. */\n    email?: string;\n    /**  URL as a string or a function to handle what should be done when clicking on user feedback. */\n    onShareFeedback: string | \"() => void\";\n    /** Indicates if the modal is visible or not. */\n    isOpen: boolean;\n    /** Optional call back that will be called when the user closes user feedback modal. */\n    onClose?: () => void;\n    /** Optional prop to change the default english strings to a string of the user choice. */\n    feedbackLocal?: FeedbackLocale;\n};\n\n/**\n * Creates an instance of the feedback modal.\n * \n * @param props \n * @returns \n */\nexport const FeedbackModal = (props: FeedbackModalProps) => <LocaleContext.Provider value={props.feedbackLocal ? props.feedbackLocal : defaultFeedback}\n    >\n        <FeedbackModalInternal {...props} />\n    </LocaleContext.Provider>\n\nexport default FeedbackModal;"
+        }
+    ]
+}

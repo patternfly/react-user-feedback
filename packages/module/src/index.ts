@@ -1,2 +1,2 @@
 export * from './Feedback';
-export * from './locales/Loacle';
+export * from './locales/Locale';

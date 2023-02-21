@@ -1,11 +1,9 @@
 import React from 'react';
 import { Button, Text, TextContent, TextVariants } from '@patternfly/react-core';
 import CheckIcon from '@patternfly/react-icons/dist/js/icons/check-icon';
-import { useIntl } from 'react-intl';
-
-import messages from '../locales/Messages';
 
 import './Feedback.scss';
+import { LocaleContext } from '../context/LocaleContext';
 
 export interface FeedbackSuccessProps {
   onCloseModal: () => void;
@@ -14,7 +12,7 @@ export interface FeedbackSuccessProps {
 }
 
 const FeedbackSuccess = ({ onCloseModal, successTitle, successDescription }: FeedbackSuccessProps) => {
-  const intl = useIntl();
+  const intl = React.useContext(LocaleContext);
   return (
     <div className="chr-c-feedback-success-content">
       <CheckIcon size="md" color="var(--pf-global--success-color--100)" className="pf-u-mx-auto" />
@@ -23,7 +21,7 @@ const FeedbackSuccess = ({ onCloseModal, successTitle, successDescription }: Fee
         <Text>{successDescription}</Text>
       </TextContent>
       <Button variant="primary" onClick={onCloseModal}>
-        {intl.formatMessage(messages.close)}
+        {intl.close}
       </Button>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
-import { IntlProvider } from 'react-intl';
 import { FeedbackModalInternal } from './FeedbackModalInternal';
+import { defaultFeedback, FeedbackLocale } from '../locales/Loacl';
+import { LocaleContext } from '../context/LocaleContext';
 
 export interface FeedbackModalProps {
     /** Email address for the user, if none is provided will default to asking for their email address. */
@@ -11,6 +12,8 @@ export interface FeedbackModalProps {
     isOpen: boolean;
     /** Optional call back that will be called when the user closes user feedback modal. */
     onClose?: () => void;
+    /** Optional prop to change the default english strings to a string of the user choice. */
+    feedbackLocal?: FeedbackLocale;
 };
 
 /**
@@ -19,10 +22,9 @@ export interface FeedbackModalProps {
  * @param props 
  * @returns 
  */
-export const FeedbackModal = (props: FeedbackModalProps) => <IntlProvider
-        locale={''}
+export const FeedbackModal = (props: FeedbackModalProps) => <LocaleContext.Provider value={props.feedbackLocal ? props.feedbackLocal : defaultFeedback}
     >
         <FeedbackModalInternal {...props} />
-    </IntlProvider>
+    </LocaleContext.Provider>
 
 export default FeedbackModal;

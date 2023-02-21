@@ -12,9 +12,7 @@ import {
   TextContent,
   TextVariants,
 } from '@patternfly/react-core';
-import { useIntl } from 'react-intl';
-
-import messages from '../locales/Messages';
+import { LocaleContext } from '../context/LocaleContext';
 
 import './Feedback.scss';
 
@@ -47,7 +45,7 @@ export const FeedbackForm = ({
   textAreaHidden = false,
   submitTitle,
 }: FeedbackFormProps) => {
-  const intl = useIntl();
+  const intl = React.useContext(LocaleContext);
   const [textAreaValue, setTextAreaValue] = useState('');
   const [checked, setChecked] = useState(false);
 
@@ -84,7 +82,7 @@ export const FeedbackForm = ({
             id="feedback-checkbox"
             isChecked={checked}
             onChange={() => setChecked(!checked)}
-            label={intl.formatMessage(messages.researchOpportunities)}
+            label={intl.researchOpportunities}
             description={checkboxDescription}
           />
         </FormGroup>
@@ -92,7 +90,7 @@ export const FeedbackForm = ({
       {checked ? (
         <>
          {/* TODO: Add code to prompt for email if none is provide along with validation that the email address is valid. */}
-          <div className="pf-u-font-family-heading-sans-serif chr-c-feedback-email">{intl.formatMessage(messages.email)}</div>
+          <div className="pf-u-font-family-heading-sans-serif chr-c-feedback-email">{intl.email}</div>
           <Panel variant="raised" className="chr-c-feedback-panel">
             <PanelMain>
               <PanelMainBody className="chr-c-feedback-panel__body">{email}</PanelMainBody>
@@ -115,10 +113,10 @@ export const FeedbackForm = ({
           {submitTitle}
         </Button>
         <Button ouiaId="back-feedback" className="chr-c-feedback-footer-button" key="back" variant="secondary" onClick={onClickBack}>
-          {intl.formatMessage(messages.back)}
+          {intl.back}
         </Button>
         <Button ouiaId="cancel-feedback" className="chr-c-feedback-footer-button" key="cancel" variant="link" onClick={onCloseModal}>
-          {intl.formatMessage(messages.cancel)}
+          {intl.cancel}
         </Button>
       </div>
     </div>

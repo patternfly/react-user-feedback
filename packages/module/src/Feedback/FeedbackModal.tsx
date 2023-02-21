@@ -1,6 +1,6 @@
 import React from 'react';
 import { FeedbackModalInternal } from './FeedbackModalInternal';
-import { defaultFeedback, FeedbackLocale } from '../locales/Loacl';
+import { defaultFeedback, FeedbackLocale } from '../locales/Loacle';
 import { LocaleContext } from '../context/LocaleContext';
 
 export interface FeedbackModalProps {

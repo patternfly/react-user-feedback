@@ -40,7 +40,6 @@
   "dependencies": {
     "@patternfly/react-core": "^4.276.6",
     "@patternfly/react-icons": "4.93.6",
-    "react-intl": "^5.25.1"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17 || ^18",

@@ -1,2 +1,2 @@
 export { default as FeedbackModal} from './FeedbackModal';
-export * from '../locales/Loacl'
+export * from '../locales/Loacle'

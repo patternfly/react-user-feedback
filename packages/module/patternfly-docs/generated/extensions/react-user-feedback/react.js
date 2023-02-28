@@ -21,6 +21,11 @@ const pageData = {
           "description": "Email address for the user, if none is provided will default to asking for their email address."
         },
         {
+          "name": "feedbackImg",
+          "type": "string",
+          "description": "Feedback image that shows up in the modal"
+        },
+        {
           "name": "feedbackLocal",
           "type": "FeedbackLocale",
           "description": "Optional prop to change the default english strings to a string of the user choice."

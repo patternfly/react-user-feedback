@@ -18,6 +18,8 @@ export interface FeedbackModalProps {
     onJoinMailingList?: string | "()=>{}"
     /**  If a URL is given the report a bug link will redirect to another site to report the bug. If a function is provided we will display a feedback screen with a submit button. If it's undefined then join mailing list will be removed from the share feedback modal*/
     onReportABug?: string | "()=>{}"
+    /** Feedback image that shows up in the modal */
+    feedbackImg?: string;
 };
 
 /**

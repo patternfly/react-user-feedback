@@ -34,7 +34,7 @@ export type FeedbackPages =
   | 'bugReportSuccess'
   | 'informDirectionSuccess';
 
-export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJoinMailingList, onReportABug, onClose }: FeedbackModalProps) => {
+export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJoinMailingList, onReportABug, onClose, feedbackImg }: FeedbackModalProps) => {
   const intl = React.useContext(LocaleContext);
 
   const [modalPage, setModalPage] = useState<FeedbackPages>('feedbackHome');
@@ -55,8 +55,8 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
             </TextContent>
             <div className="chr-c-feedback-cards">
               <Card isSelectableRaised isCompact onClick={() => {typeof onShareFeedback === 'string' ? window.open(onShareFeedback, '_blank') :  setModalPage('feedbackOne')}}>
-                <CardTitle className="chr-c-feedback-card-title">{intl.shareFeedback}</CardTitle>
-                <CardBody>{intl.howIsConsoleExperience}</CardBody>
+                <CardTitle className="chr-c-feedback-card-title">{intl.shareFeedback} {typeof onShareFeedback === 'string' ? <ExternalLinkAltIcon /> : null}</CardTitle>
+                <CardBody>{intl.howIsConsoleExperience} </CardBody>
               </Card>
               <br />
               {onReportABug ? 
@@ -80,9 +80,9 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
               </Card>
               <br />
               {onJoinMailingList ?
-              <Card isSelectableRaised isCompact onClick={() => {typeof onJoinMailingList ==='string' ? window.open(onReportABug, '_blank') : setModalPage('informDirection')}}>
+              <Card isSelectableRaised isCompact onClick={() => {typeof onJoinMailingList ==='string' ? window.open(onJoinMailingList, '_blank') : setModalPage('informDirection')}}>
                 <CardTitle className="chr-c-feedback-card-title">
-                  <Text>{intl.informRedhatDirection}</Text>
+                  <Text>{intl.informRedhatDirection} {typeof onJoinMailingList === 'string' ? <ExternalLinkAltIcon />: null}</Text>
                 </CardTitle>
                 <CardBody>{intl.learnAboutResearchOpportunities}</CardBody>
               </Card>: null }
@@ -190,7 +190,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
             <ModalDescription modalPage={modalPage} />
           </GridItem>
           <GridItem span={4} className="chr-c-feedback-image">
-            <img alt="feedback illustration" src={feedbackIllo} />
+            <img alt="feedback illustration" src={feedbackImg? feedbackImg : feedbackIllo} />
           </GridItem>
         </Grid>
       </Modal>

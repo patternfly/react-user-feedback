@@ -13,7 +13,7 @@ export interface FeedbackModalProps {
     /** Optional call back that will be called when the user closes user feedback modal. */
     onClose: () => void;
     /** Optional prop to change the default english strings to a string of the user choice. */
-    feedbackLocal?: FeedbackLocale;
+    feedbackLocale?: FeedbackLocale;
     /**  If a URL is given the join mailing list link will redirect to another site to join the mailing list. If a function is provided we will display a join mailing list screen with a submit button. If it's undefined then report a bug will be removed from share feedback modal*/
     onJoinMailingList?: string | "()=>{}"
     /**  If a URL is given the report a bug link will redirect to another site to report the bug. If a function is provided we will display a feedback screen with a submit button. If it's undefined then join mailing list will be removed from the share feedback modal*/
@@ -28,7 +28,7 @@ export interface FeedbackModalProps {
  * @param props 
  * @returns 
  */
-export const FeedbackModal = (props: FeedbackModalProps) => <LocaleContext.Provider value={props.feedbackLocal ? props.feedbackLocal : defaultFeedback}
+export const FeedbackModal = (props: FeedbackModalProps) => <LocaleContext.Provider value={props.feedbackLocale ? props.feedbackLocale : defaultFeedback}
     >
         <FeedbackModalInternal {...props} />
     </LocaleContext.Provider>

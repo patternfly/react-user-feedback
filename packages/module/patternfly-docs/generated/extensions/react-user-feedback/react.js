@@ -26,7 +26,7 @@ const pageData = {
           "description": "Feedback image that shows up in the modal"
         },
         {
-          "name": "feedbackLocal",
+          "name": "feedbackLocale",
           "type": "FeedbackLocale",
           "description": "Optional prop to change the default english strings to a string of the user choice."
         },
@@ -75,7 +75,7 @@ pageData.relativeImports = {
 };
 pageData.examples = {
   'Example': props => 
-    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal} from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\nexport const BasicExample: React.FunctionComponent = () => {\n   const  [isOpen, setIsOpen] = React.useState<boolean>(false);\n   const handleButtonClicked = () => {setIsOpen(true)}; \n   return <>\n    <Button onClick={handleButtonClicked}>Show Modal</Button>\n    <FeedbackModal \n        email= \"test@redhat.com\" \n        onShareFeedback='https://console.redhat.com/self-managed-feedback-form' \n        onJoinMailingList='https://console.redhat.com/self-managed-research-form'\n        isOpen={isOpen}\n        onClose={()=>setIsOpen(false)}/>\n    </>\n}\n","title":"Example","lang":"js"}}>
+    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal} from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\n\nexport const BasicExample: React.FunctionComponent = () => {\n   const  [isOpen, setIsOpen] = React.useState<boolean>(false);\n   const handleButtonClicked = () => {setIsOpen(true)}; \n   return <>\n    <Button onClick={handleButtonClicked}>Show Modal</Button>\n    <FeedbackModal \n        email= \"test@redhat.com\" \n        onShareFeedback='https://console.redhat.com/self-managed-feedback-form' \n        onJoinMailingList='https://console.redhat.com/self-managed-research-form'\n        isOpen={isOpen}\n        onClose={()=>setIsOpen(false)}/>\n    </>\n}\n","title":"Example","lang":"js"}}>
       
     </Example>
 };

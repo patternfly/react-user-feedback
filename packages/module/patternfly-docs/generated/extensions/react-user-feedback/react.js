@@ -27,7 +27,6 @@ const pageData = {
         },
         {
           "name": "feedbackLocale",
-          "type": "FeedbackLocale",
           "description": "Optional prop to change the default english strings to a string of the user choice."
         },
         {

@@ -34,7 +34,7 @@ export type FeedbackPages =
   | 'bugReportSuccess'
   | 'informDirectionSuccess';
 
-export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJoinMailingList, onReportABug, onClose, feedbackImg }: FeedbackModalProps) => {
+export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJoinMailingList, onReportABug, onOpenSupportCase, onClose, feedbackImg }: FeedbackModalProps) => {
   const intl = React.useContext(LocaleContext);
 
   const [modalPage, setModalPage] = useState<FeedbackPages>('feedbackHome');
@@ -68,7 +68,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
                 isSelectableRaised
                 isCompact
                 onClick={() => {
-                  window.open('https://access.redhat.com/support/cases/#/case/new/open-case?caseCreate=true', '_blank');
+                  window.open(onOpenSupportCase ? onOpenSupportCase : 'https://access.redhat.com/support/cases/#/case/new/open-case?caseCreate=true', '_blank');
                 }}
               >
                 <CardTitle className="chr-c-feedback-card-title">

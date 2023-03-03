@@ -48,6 +48,11 @@ const pageData = {
           "description": "If a URL is given the join mailing list link will redirect to another site to join the mailing list. If a function is provided we will display a join mailing list screen with a submit button. If it's undefined then report a bug will be removed from share feedback modal"
         },
         {
+          "name": "onOpenSupportCase",
+          "type": "string",
+          "description": "URL to open a support case"
+        },
+        {
           "name": "onReportABug",
           "type": "string | \"()=>{}\"",
           "description": "If a URL is given the report a bug link will redirect to another site to report the bug. If a function is provided we will display a feedback screen with a submit button. If it's undefined then join mailing list will be removed from the share feedback modal"
@@ -75,7 +80,7 @@ pageData.relativeImports = {
 };
 pageData.examples = {
   'Example': props => 
-    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal} from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\n\nexport const BasicExample: React.FunctionComponent = () => {\n   const  [isOpen, setIsOpen] = React.useState<boolean>(false);\n   const handleButtonClicked = () => {setIsOpen(true)}; \n   return <>\n    <Button onClick={handleButtonClicked}>Show Modal</Button>\n    <FeedbackModal \n        email= \"test@redhat.com\" \n        onShareFeedback='https://console.redhat.com/self-managed-feedback-form' \n        onJoinMailingList='https://console.redhat.com/self-managed-research-form'\n        isOpen={isOpen}\n        onClose={()=>setIsOpen(false)}/>\n    </>\n}\n","title":"Example","lang":"js"}}>
+    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal} from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\n\nexport const BasicExample: React.FunctionComponent = () => {\n   const  [isOpen, setIsOpen] = React.useState<boolean>(false);\n   const handleButtonClicked = () => {setIsOpen(true)}; \n   return <>\n    <Button onClick={handleButtonClicked}>Show Modal</Button>\n    <FeedbackModal \n        email= \"test@redhat.com\" \n        onShareFeedback='https://console.redhat.com/self-managed-feedback-form' \n        onJoinMailingList='https://console.redhat.com/self-managed-research-form'\n        onOpenSupportCase='http://www.redhat.com'\n        isOpen={isOpen}\n        onClose={()=>setIsOpen(false)}/>\n    </>\n}","title":"Example","lang":"js"}}>
       
     </Example>
 };

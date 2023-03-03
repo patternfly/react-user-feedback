@@ -12,6 +12,7 @@ export const BasicExample: React.FunctionComponent = () => {
         email= "test@redhat.com" 
         onShareFeedback='https://console.redhat.com/self-managed-feedback-form' 
         onJoinMailingList='https://console.redhat.com/self-managed-research-form'
+        onOpenSupportCase='http://www.redhat.com'
         isOpen={isOpen}
         onClose={()=>setIsOpen(false)}/>
     </>

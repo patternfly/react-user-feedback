@@ -20,6 +20,8 @@ export interface FeedbackModalProps {
     onReportABug?: string | "()=>{}"
     /** Feedback image that shows up in the modal */
     feedbackImg?: string;
+    /** URL to open a support case */
+    onOpenSupportCase?: string;
 };
 
 /**

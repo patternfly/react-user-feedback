@@ -14,7 +14,7 @@ import {
 } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 
-import feedbackIllo from '../images/feedback_illo.svg';
+import feedbackImage from '../images/pf_feedback.svg';
 import { FeedbackForm } from './FeedbackForm';
 import FeedbackSuccess from './FeedbackSuccess';
 import FeedbackError from './FeedbackError';
@@ -190,7 +190,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
             <ModalDescription modalPage={modalPage} />
           </GridItem>
           <GridItem span={4} className="chr-c-feedback-image">
-            <img alt="feedback illustration" src={feedbackImg? feedbackImg : feedbackIllo} />
+            <img alt="feedback illustration" src={feedbackImg? feedbackImg : feedbackImage} />
           </GridItem>
         </Grid>
       </Modal>

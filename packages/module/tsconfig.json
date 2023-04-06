@@ -68,5 +68,5 @@
     "skipLibCheck": true /* Skip type checking of declaration files. */,
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
   },
-  "include": ["src/@types/assets.d.ts", "./src/*", "./src/**/*"]
+  "include": ["src/@types/assets.d.ts", "./src/*", "./src/**/*", "../../index.d.ts"]
 }

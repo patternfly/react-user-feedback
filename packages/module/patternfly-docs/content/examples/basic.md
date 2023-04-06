@@ -12,12 +12,19 @@ source: react
 propComponents: ['FeedbackModalProps']
 ---
 
-import { FeedbackModal, FeedbackModalProps, FeedbackLocale } from "@patternfly/react-user-feedback";
+import { FeedbackModal } from "@patternfly/react-user-feedback";
+import feedbackImage from '@patternfly/react-user-feedback/dist/esm/images/rh_feedback.svg';
 
-## Basic usage
+## Examples
 
-### Example
+### Basic
 
 ```js file="./Basic.tsx"
+
+```
+
+### Advanced
+
+```js file="./Advanced.tsx"
 
 ```

@@ -56,3 +56,6 @@ yarn test:a11y
 ```
 
 Once the accessibility tests have finished running you can run yarn **serve:a11y** to locally view the generated report.
+
+### Committing changes
+When commiting changes follow the guidelines in [semantic release](https://github.com/semantic-release/semantic-release)

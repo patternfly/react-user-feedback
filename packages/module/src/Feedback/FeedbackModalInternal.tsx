@@ -23,7 +23,6 @@ import { FeedbackModalProps } from './FeedbackModal';
 import './Feedback.scss';
 import { LocaleContext } from '../context/LocaleContext';
 
-
 export type FeedbackPages =
   | 'feedbackHome'
   | 'feedbackOne'
@@ -40,9 +39,24 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
   const [modalPage, setModalPage] = useState<FeedbackPages>('feedbackHome');
   const handleCloseModal = () => {
     if (onClose) {
-      onClose();
+       onClose();
+
     }
+    setModalPage("feedbackHome");
   };
+
+  const onSubmit = (feedbackPage: FeedbackPages, callBack?: string | (()=>boolean)) => {
+    if (callBack && typeof callBack === 'function') {
+      callBack();
+      if(callBack() === false) {
+        setModalPage("feedbackError");
+       } else {
+        setModalPage(feedbackPage);
+       }
+    } else {
+      setModalPage(feedbackPage);
+    }
+  }
 
   const ModalDescription = ({ modalPage }: { modalPage: FeedbackPages }) => {
     switch (modalPage) {
@@ -97,7 +111,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
           <FeedbackForm
             email={email}
             onCloseModal={handleCloseModal}
-            onSubmit={() => setModalPage('feedbackSuccess')}
+            onSubmit={() => onSubmit('feedbackSuccess', onShareFeedback)}
             onClickBack={() => setModalPage('feedbackHome')}
             handleFeedbackError={() => setModalPage('feedbackError')}
             modalTitle={intl.shareYourFeedback}
@@ -112,7 +126,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
           <FeedbackForm
             email={email}
             onCloseModal={handleCloseModal}
-            onSubmit={() => setModalPage('bugReportSuccess')}
+            onSubmit={() => onSubmit('bugReportSuccess', onReportABug)}
             onClickBack={() => setModalPage('feedbackHome')}
             handleFeedbackError={() => setModalPage('feedbackError')}
             modalTitle={intl.reportABug}
@@ -134,7 +148,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
           <FeedbackForm
             email={email}
             onCloseModal={handleCloseModal}
-            onSubmit={() => setModalPage('informDirectionSuccess')}
+            onSubmit={() => onSubmit('informDirectionSuccess', onJoinMailingList)}
             onClickBack={() => setModalPage('feedbackHome')}
             handleFeedbackError={() => setModalPage('feedbackError')}
             modalTitle={intl.informRedhatDirection}

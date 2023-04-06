@@ -12,8 +12,8 @@ module.exports = {
   '/extensions/react-user-feedback/react': {
     id: "react-user-feedback",
     title: "react-user-feedback",
-    toc: [{"text":"Basic usage"},[{"text":"Example"}]],
-    examples: ["Example"],
+    toc: [{"text":"Examples"},[{"text":"Basic"},{"text":"Advanced"}]],
+    examples: ["Basic","Advanced"],
     section: "extensions",
     subsection: "",
     source: "react",

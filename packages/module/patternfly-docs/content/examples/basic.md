@@ -28,3 +28,9 @@ import feedbackImage from '@patternfly/react-user-feedback/dist/esm/images/rh_fe
 ```js file="./Advanced.tsx"
 
 ```
+
+### i18n
+
+```js file="./i18n.tsx"
+
+```

@@ -12,6 +12,7 @@ jobs:
       - uses: afc163/surge-preview@v1
         id: preview_step
         with:
+          node-version: '16'
           github_token: ${{ secrets.GITHUB_TOKEN }}
           surge_token: ${{ secrets.SURGE_TOKEN }}
           dist: packages/module/public

@@ -36,23 +36,23 @@
   },
   "dependencies": {
     "@patternfly/react-core": "^4.276.6",
-    "@patternfly/react-icons": "^4.93.6"
+    "@patternfly/react-icons": "^4.93.6",
+    "@patternfly/documentation-framework": "^1.2.55",
+    "@patternfly/patternfly": "^4.224.2",
+    "@patternfly/react-table": "^4.112.39",
+    "@patternfly/react-code-editor": "^4.82.113",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17 || ^18",
     "react-dom": "^16.8 || ^17 || ^18"
   },
   "devDependencies": {
-    "@patternfly/documentation-framework": "^1.2.55",
-    "@patternfly/patternfly": "^4.224.2",
-    "@patternfly/react-table": "^4.112.39",
-    "@patternfly/react-code-editor": "^4.82.113",
     "copyfiles": "2.4.1",
     "utility-types": "^3.10.0",
     "rimraf": "^2.6.2",
     "typescript": "^4.7.4",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@patternfly/patternfly-a11y": "4.3.1",

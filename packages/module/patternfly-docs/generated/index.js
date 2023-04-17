@@ -2,7 +2,7 @@ module.exports = {
   '/extensions/react-user-feedback/design-guidelines': {
     id: "react-user-feedback",
     title: "react-user-feedback",
-    toc: [{"text":"Header"},[{"text":"Sub-header"}]],
+    toc: [],
     section: "extensions",
     subsection: "",
     source: "design-guidelines",

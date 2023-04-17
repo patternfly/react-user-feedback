@@ -9,15 +9,6 @@ id: react-user-feedback
 source: design-guidelines
 ---
 
-Design guidelines intro
+Design guidelines
 
-## Header
-
-### Sub-header
-
-Guidelines:
-
-1. A
-1. list
-1. using
-1. markdown
+COMING SOON!

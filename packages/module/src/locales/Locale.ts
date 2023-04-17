@@ -11,16 +11,16 @@ export interface FeedbackLocale {
     enterFeedback: string;
     feedback: string;
     feedbackSent: string;
-    getSupport: string;
+    support: string;
     helpUsImproveHCC:string;
     howIsConsoleExperience: string;
     joinMailingList: string;
-    informRedhatDirection: string;
+    informDirection: string;
     informDirectionDescription: string;
     learnAboutResearchOpportunities: string;
     openSupportCase: string;
     problemProcessingRequest: string;
-    redHatSupport: string;
+    getSupport: string;
     reportABug: string;
     responseSent:string;
     researchOpportunities: string;
@@ -37,7 +37,7 @@ export interface FeedbackLocale {
 }
 
 export const defaultFeedback : FeedbackLocale =  {
-    getSupport: "Get help from Red Hat support.",
+    getSupport: "Get help and support.",
     back: "Back",
     bugReported: "Bug Reported",
     cancel: "Cancel",
@@ -45,20 +45,20 @@ export const defaultFeedback : FeedbackLocale =  {
     describeBug: "Describe the bug you encountered. For urgent issues, open a support case instead.",
     describeBugUrgentCases: "Describe the bug you encountered. For urgent issues, open a support case instead.",
     describeReportBug: "Describe the bug you encountered. Include where it is located and what action caused it. If this issue is urgent or blocking your workflow,",
-    directInfluence: ", your feedback will directly influence the future of Red Hat’s products. Opt in below to hear about future research opportunities via email.",
+    directInfluence: ", your feedback will directly influence the future of our products. Opt in below to hear about future research opportunities via email.",
     email: "Email",
     enterFeedback: "Enter your feedback",
     feedback: "Feedback",
     feedbackSent: "Feedback Sent",
-    helpUsImproveHCC: "Help us improve the Red Hat Hybrid Cloud Console.",
+    helpUsImproveHCC: "Help us improve our products by sharing your feedback",
     howIsConsoleExperience: "What has your console experience been like so far?",
     joinMailingList: "Join mailing list",
     informDirectionDescription: "By participating in feedback sessions, usability tests, and interviews with our",
-    informRedhatDirection: "Inform the direction of Red Hat",
+    informDirection: "Inform the direction of products",
     learnAboutResearchOpportunities: "Learn about opportunities to share your feedback with our User Research Team.",
     openSupportCase: "Open a support case",
     problemProcessingRequest: "There was a problem processing the request. Try reloading the page. If the problem persists, contact",
-    redHatSupport: "Red Hat support",
+    support: "Support",
     reportABug: "Report a bug",
     responseSent: "Response sent",
     researchOpportunities: "Yes, I would like to hear about research opportunities",

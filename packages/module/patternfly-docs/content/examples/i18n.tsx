@@ -21,12 +21,12 @@ const i18nExample = {
     joinMailingList: 'Lorem ipsum dolor sit ametJoin mailing list',
     informDirectionDescription: 
       'Lorem ipsum dolor sit ametBy participating in feedback sessions, usability tests, and interviews with our',
-    informRedhatDirection: 'Lorem ipsum dolor sit ametInform the direction of Red Hat',
+    informDirection: 'Lorem ipsum dolor sit ametInform the direction of Red Hat',
     learnAboutResearchOpportunities: 'Lorem ipsum dolor sit ametLearn about opportunities to share your feedback with our User Research Team.',
     openSupportCase: 'Lorem ipsum dolor sit amet Support Case',
     problemProcessingRequest: 
       'Lorem ipsum dolor sit ametThere was a problem processing the request. Try reloading the page. If the problem persists, contact',
-    redHatSupport: 'Lorem ipsum dolor sit ametRed Hat support',
+    support: 'Lorem ipsum dolor sit ametRed Hat support',
     reportABug: 'Lorem ipsum dolor sit ametReport a bug',
     responseSent: 'Lorem ipsum dolor sit ametResponse sent',
     researchOpportunities: 'Lorem ipsum dolor sit ametYes, I would like to hear about research opportunities',

@@ -4,20 +4,11 @@
 section: extensions
 # Sidenav secondary level section
 # should be the same for all markdown files for each extension
-id: react-user-feedback
+id: User feedback
 # Tab (react | react-demos | html | html-demos | design-guidelines | accessibility)
 source: design-guidelines
 ---
 
-Design guidelines intro
+Design guidelines
 
-## Header
-
-### Sub-header
-
-Guidelines:
-
-1. A
-1. list
-1. using
-1. markdown
+COMING SOON!

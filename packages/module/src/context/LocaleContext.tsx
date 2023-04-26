@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import { FeedbackLocale, defaultFeedback } from '../Feedback';
-
+import { FeedbackLocale } from '../Feedback';
+import { defaultFeedback } from '../locales/Locale';
 export const LocaleContext = createContext<FeedbackLocale>(defaultFeedback);

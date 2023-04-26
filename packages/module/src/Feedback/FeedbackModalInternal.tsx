@@ -166,7 +166,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
             }
             onClickBack={() => setModalPage('feedbackHome')}
             handleFeedbackError={() => setModalPage('feedbackError')}
-            modalTitle={intl.informRedhatDirection}
+            modalTitle={intl.informDirection}
             modalDescription={
               <Text>
                 {intl.informDirectionDescription}

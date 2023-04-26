@@ -19,7 +19,7 @@ const FeedbackError = ({ onCloseModal }: FeedbackErrorProps) => {
         <Text>
           {intl.problemProcessingRequest}{' '}
           <a target="_blank" href="https://access.redhat.com/support" rel="noreferrer">
-            {intl.redHatSupport}
+            {intl.getSupport}
           </a>
         </Text>
       </TextContent>

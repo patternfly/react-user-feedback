@@ -70,14 +70,14 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
               <br />
               {onReportABug ?
                 <><Card isSelectableRaised isCompact onClick={() => { typeof onReportABug === 'string' ? window.open(onReportABug, '_blank') : setModalPage('reportBugOne'); }}>
-                  <CardTitle className="chr-c-feedback-card-title">{intl.reportABug}</CardTitle>
+                  <CardTitle className="chr-c-feedback-card-title">{intl.reportABug} {typeof onReportABug === 'string' ? <ExternalLinkAltIcon /> : null} </CardTitle> 
                   <CardBody>{intl.describeBugUrgentCases}</CardBody>
                 </Card><br /></> : null}
-              <Card
+              {onOpenSupportCase ?<Card
                 isSelectableRaised
                 isCompact
                 onClick={() => {
-                  window.open(onOpenSupportCase ? onOpenSupportCase : 'https://access.redhat.com/support/cases/#/case/new/open-case?caseCreate=true', '_blank');
+                   window.open(onOpenSupportCase, '_blank');
                 }}
               >
                 <CardTitle className="chr-c-feedback-card-title">
@@ -86,7 +86,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
                   </Text>
                 </CardTitle>
                 <CardBody>{intl.getSupport}</CardBody>
-              </Card>
+              </Card> : null}
               <br />
               {onJoinMailingList ?
                 <Card isSelectableRaised isCompact onClick={() => { typeof onJoinMailingList === 'string' ? window.open(onJoinMailingList, '_blank') : setModalPage('informDirection') }}>

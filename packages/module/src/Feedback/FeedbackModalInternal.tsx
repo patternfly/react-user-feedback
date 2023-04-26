@@ -91,7 +91,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
               {onJoinMailingList ?
                 <Card isSelectableRaised isCompact onClick={() => { typeof onJoinMailingList === 'string' ? window.open(onJoinMailingList, '_blank') : setModalPage('informDirection') }}>
                   <CardTitle className="chr-c-feedback-card-title">
-                    <Text>{intl.informRedhatDirection} {typeof onJoinMailingList === 'string' ? <ExternalLinkAltIcon /> : null}</Text>
+                    <Text>{intl.informDirection} {typeof onJoinMailingList === 'string' ? <ExternalLinkAltIcon /> : null}</Text>
                   </CardTitle>
                   <CardBody>{intl.learnAboutResearchOpportunities}</CardBody>
                 </Card> : null}

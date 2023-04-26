@@ -58,9 +58,6 @@ export const FeedbackForm = ({
     }
   }
 
-  // Q: What is the regex for email validation?
-  // A: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
-
   const validateEmail = (email: string) => email
       .toLowerCase()
       .match(

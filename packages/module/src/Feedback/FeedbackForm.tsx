@@ -4,9 +4,6 @@ import {
   Checkbox,
   Form,
   FormGroup,
-  Panel,
-  PanelMain,
-  PanelMainBody,
   Text,
   TextArea,
   TextContent,
@@ -119,18 +116,13 @@ export const FeedbackForm = ({
         <>
           {/* TODO: Add code to prompt for email if none is provide along with validation that the email address is valid. */}
           <div className="pf-u-font-family-heading-sans-serif chr-c-feedback-email">{intl.email}</div>
-          email ? 
-            <TextInput value={currentEmail} onChange={(value) => setCurrentEmail(value)}
-              validated={validateEmail(currentEmail) ? ValidatedOptions.default : ValidatedOptions.error}
-              id="textInput-basic-2"
-              type="email"
-              aria-label="Error state username example"/>
-            :
-            <Panel variant="raised" className="chr-c-feedback-panel">
-              <PanelMain>
-                <PanelMainBody className="chr-c-feedback-panel__body">{email}</PanelMainBody>
-              </PanelMain>
-            </Panel>
+          <TextInput value={currentEmail} onChange={(value) => setCurrentEmail(value)}
+            validated={validateEmail(currentEmail) ? ValidatedOptions.default : ValidatedOptions.error}
+            id="textInput-basic-2"
+            type="email"
+            aria-label="Error state username example"
+            isDisabled = {email ? true : false}
+          />
         </>
       ) : (
         ''

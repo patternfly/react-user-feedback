@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useRef } from 'react';
 import {
   Button,
   Card,
@@ -36,6 +36,7 @@ export type FeedbackPages =
 export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJoinMailingList, onReportABug, onOpenSupportCase, onClose, feedbackImg }: FeedbackModalProps) => {
   const intl = React.useContext(LocaleContext);
 
+  const emailRef = useRef<string>(email ? email : '');
   const [modalPage, setModalPage] = useState<FeedbackPages>('feedbackHome');
   const handleCloseModal = () => {
     if (onClose) {
@@ -104,12 +105,13 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
       case 'feedbackOne':
         return (
           <FeedbackForm
-            email={email}
+            email={emailRef.current}
             onCloseModal={handleCloseModal}
             onSubmit={(email: string, textAreaValue: string) => {
               let results = true;
               if (onShareFeedback && typeof onShareFeedback === 'function') {
                 results = onShareFeedback(email, textAreaValue);
+                emailRef.current = email;
               }
               onSubmit('feedbackSuccess', results)
             }
@@ -126,12 +128,13 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
       case 'reportBugOne':
         return (
           <FeedbackForm
-            email={email}
+            email={emailRef.current}
             onCloseModal={handleCloseModal}
             onSubmit={(email: string, textAreaValue: string) => {
               let results = true;
               if (onReportABug && typeof onReportABug === 'function') {
                 results = onReportABug(email, textAreaValue);
+                emailRef.current = email;
               }
               onSubmit('bugReportSuccess', results)
             }}
@@ -154,12 +157,13 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
       case 'informDirection':
         return (
           <FeedbackForm
-            email={email}
+            email={emailRef.current}
             onCloseModal={handleCloseModal}
             onSubmit={(email: string, _textAreaValue: string) => {
               let results = true;
               if (onJoinMailingList && typeof onJoinMailingList === 'function') {
                 results = onJoinMailingList(email);
+                emailRef.current = email;
               }
               onSubmit('informDirectionSuccess', results)
             }

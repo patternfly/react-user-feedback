@@ -4,7 +4,7 @@ import { defaultFeedback, FeedbackLocale } from '../locales/Locale';
 import { LocaleContext } from '../context/LocaleContext';
 
 export interface FeedbackModalProps {
-    /** Email address for the user, if none is provided will default to asking for their email address. */
+    /** Email address for the user, if none is passed in a user can still enter one in the modal. */
     email?: string;
     /**  If a URL is given the  share feedback link will redirect to another site share feedback. 
      * If a function is provided we will display a share feedback screen with a submit button. The callback function should return a boolean if the callback is successful or unsuccessful.*/

@@ -19,7 +19,7 @@ const pageData = {
         {
           "name": "email",
           "type": "string",
-          "description": "Email address for the user, if none is provided will default to asking for their email address."
+          "description": "Email address for the user, if none is passed in a user can still enter one in the modal."
         },
         {
           "name": "feedbackImg",

@@ -1,5 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 import {
+  Alert,
   Button,
   Checkbox,
   Form,
@@ -47,6 +48,7 @@ export const FeedbackForm = ({
   const intl = React.useContext(LocaleContext);
   const [currentEmail, setCurrentEmail] = useState(email ? email : '');
   const [textAreaValue, setTextAreaValue] = useState('');
+  const [emailValid, setEmailValid] = useState(ValidatedOptions.default);
   const [checked, setChecked] = useState(false);
 
   async function handleModalSubmission() {
@@ -57,6 +59,7 @@ export const FeedbackForm = ({
       handleFeedbackError();
     }
   }
+
 
   const validateEmail = (email: string) => email
       .toLowerCase()
@@ -114,15 +117,15 @@ export const FeedbackForm = ({
       </Form>
       {checked ? (
         <>
-          {/* TODO: Add code to prompt for email if none is provide along with validation that the email address is valid. */}
           <div className="pf-u-font-family-heading-sans-serif chr-c-feedback-email">{intl.email}</div>
           <TextInput value={currentEmail} onChange={(value) => setCurrentEmail(value)}
-            validated={validateEmail(currentEmail) ? ValidatedOptions.default : ValidatedOptions.error}
+            validated={emailValid}
+            onBlur={()=>!validateEmail(currentEmail) ? setEmailValid(ValidatedOptions.error) : setEmailValid(ValidatedOptions.default)}
             id="textInput-basic-2"
             type="email"
             aria-label="Error state username example"
-            isDisabled = {email ? true : false}
           />
+          {emailValid === ValidatedOptions.error ? <Alert variant="danger" isInline isPlain title="Email address is invalid." /> : <></>}
         </>
       ) : (
         ''

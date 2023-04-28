@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useRef } from 'react';
 import {
   Button,
   Card,
@@ -36,23 +36,19 @@ export type FeedbackPages =
 export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJoinMailingList, onReportABug, onOpenSupportCase, onClose, feedbackImg }: FeedbackModalProps) => {
   const intl = React.useContext(LocaleContext);
 
+  const emailRef = useRef<string>(email ? email : '');
   const [modalPage, setModalPage] = useState<FeedbackPages>('feedbackHome');
   const handleCloseModal = () => {
     if (onClose) {
-       onClose();
+      onClose();
 
     }
     setModalPage("feedbackHome");
   };
 
-  const onSubmit = (feedbackPage: FeedbackPages, callBack?: string | (()=>boolean)) => {
-    if (callBack && typeof callBack === 'function') {
-      callBack();
-      if(callBack() === false) {
-        setModalPage("feedbackError");
-       } else {
-        setModalPage(feedbackPage);
-       }
+  const onSubmit = (feedbackPage: FeedbackPages, results: boolean) => {
+    if (results === false) {
+      setModalPage("feedbackError");
     } else {
       setModalPage(feedbackPage);
     }
@@ -68,21 +64,21 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
               <Text>{intl.helpUsImproveHCC}</Text>
             </TextContent>
             <div className="chr-c-feedback-cards">
-              <Card isSelectableRaised isCompact onClick={() => {typeof onShareFeedback === 'string' ? window.open(onShareFeedback, '_blank') :  setModalPage('feedbackOne')}}>
+              <Card isSelectableRaised isCompact onClick={() => { typeof onShareFeedback === 'string' ? window.open(onShareFeedback, '_blank') : setModalPage('feedbackOne') }}>
                 <CardTitle className="chr-c-feedback-card-title">{intl.shareFeedback} {typeof onShareFeedback === 'string' ? <ExternalLinkAltIcon /> : null}</CardTitle>
                 <CardBody>{intl.howIsConsoleExperience} </CardBody>
               </Card>
               <br />
-              {onReportABug ? 
-              <><Card isSelectableRaised isCompact onClick={() => { typeof onReportABug === 'string' ? window.open(onReportABug, '_blank') : setModalPage('reportBugOne'); } }>
-                  <CardTitle className="chr-c-feedback-card-title">{intl.reportABug}</CardTitle>
+              {onReportABug ?
+                <><Card isSelectableRaised isCompact onClick={() => { typeof onReportABug === 'string' ? window.open(onReportABug, '_blank') : setModalPage('reportBugOne'); }}>
+                  <CardTitle className="chr-c-feedback-card-title">{intl.reportABug} {typeof onReportABug === 'string' ? <ExternalLinkAltIcon /> : null} </CardTitle> 
                   <CardBody>{intl.describeBugUrgentCases}</CardBody>
                 </Card><br /></> : null}
-              <Card
+              {onOpenSupportCase ?<Card
                 isSelectableRaised
                 isCompact
                 onClick={() => {
-                  window.open(onOpenSupportCase ? onOpenSupportCase : 'https://access.redhat.com/support/cases/#/case/new/open-case?caseCreate=true', '_blank');
+                   window.open(onOpenSupportCase, '_blank');
                 }}
               >
                 <CardTitle className="chr-c-feedback-card-title">
@@ -91,15 +87,15 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
                   </Text>
                 </CardTitle>
                 <CardBody>{intl.getSupport}</CardBody>
-              </Card>
+              </Card> : null}
               <br />
               {onJoinMailingList ?
-              <Card isSelectableRaised isCompact onClick={() => {typeof onJoinMailingList ==='string' ? window.open(onJoinMailingList, '_blank') : setModalPage('informDirection')}}>
-                <CardTitle className="chr-c-feedback-card-title">
-                  <Text>{intl.informDirection} {typeof onJoinMailingList === 'string' ? <ExternalLinkAltIcon />: null}</Text>
-                </CardTitle>
-                <CardBody>{intl.learnAboutResearchOpportunities}</CardBody>
-              </Card>: null }
+                <Card isSelectableRaised isCompact onClick={() => { typeof onJoinMailingList === 'string' ? window.open(onJoinMailingList, '_blank') : setModalPage('informDirection') }}>
+                  <CardTitle className="chr-c-feedback-card-title">
+                    <Text>{intl.informDirection} {typeof onJoinMailingList === 'string' ? <ExternalLinkAltIcon /> : null}</Text>
+                  </CardTitle>
+                  <CardBody>{intl.learnAboutResearchOpportunities}</CardBody>
+                </Card> : null}
             </div>
             <Button className="chr-c-feedback-button" ouiaId="cancel-feedback" key="cancel" variant="link" onClick={handleCloseModal}>
               {intl.cancel}
@@ -109,9 +105,17 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
       case 'feedbackOne':
         return (
           <FeedbackForm
-            email={email}
+            email={emailRef.current}
             onCloseModal={handleCloseModal}
-            onSubmit={() => onSubmit('feedbackSuccess', onShareFeedback)}
+            onSubmit={(email: string, textAreaValue: string) => {
+              let results = true;
+              if (onShareFeedback && typeof onShareFeedback === 'function') {
+                results = onShareFeedback(email, textAreaValue);
+                emailRef.current = email;
+              }
+              onSubmit('feedbackSuccess', results)
+            }
+            }
             onClickBack={() => setModalPage('feedbackHome')}
             handleFeedbackError={() => setModalPage('feedbackError')}
             modalTitle={intl.shareYourFeedback}
@@ -124,9 +128,16 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
       case 'reportBugOne':
         return (
           <FeedbackForm
-            email={email}
+            email={emailRef.current}
             onCloseModal={handleCloseModal}
-            onSubmit={() => onSubmit('bugReportSuccess', onReportABug)}
+            onSubmit={(email: string, textAreaValue: string) => {
+              let results = true;
+              if (onReportABug && typeof onReportABug === 'function') {
+                results = onReportABug(email, textAreaValue);
+                emailRef.current = email;
+              }
+              onSubmit('bugReportSuccess', results)
+            }}
             onClickBack={() => setModalPage('feedbackHome')}
             handleFeedbackError={() => setModalPage('feedbackError')}
             modalTitle={intl.reportABug}
@@ -146,9 +157,17 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
       case 'informDirection':
         return (
           <FeedbackForm
-            email={email}
+            email={emailRef.current}
             onCloseModal={handleCloseModal}
-            onSubmit={() => onSubmit('informDirectionSuccess', onJoinMailingList)}
+            onSubmit={(email: string, _textAreaValue: string) => {
+              let results = true;
+              if (onJoinMailingList && typeof onJoinMailingList === 'function') {
+                results = onJoinMailingList(email);
+                emailRef.current = email;
+              }
+              onSubmit('informDirectionSuccess', results)
+            }
+            }
             onClickBack={() => setModalPage('feedbackHome')}
             handleFeedbackError={() => setModalPage('feedbackError')}
             modalTitle={intl.informDirection}
@@ -204,7 +223,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
             <ModalDescription modalPage={modalPage} />
           </GridItem>
           <GridItem span={4} className="chr-c-feedback-image">
-            <img alt="feedback illustration" src={feedbackImg? feedbackImg : feedbackImage} />
+            <img alt="feedback illustration" src={feedbackImg ? feedbackImg : feedbackImage} />
           </GridItem>
         </Grid>
       </Modal>

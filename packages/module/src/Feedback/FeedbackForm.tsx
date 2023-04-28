@@ -1,16 +1,16 @@
 import React, { ReactNode, useState } from 'react';
 import {
+  Alert,
   Button,
   Checkbox,
   Form,
   FormGroup,
-  Panel,
-  PanelMain,
-  PanelMainBody,
   Text,
   TextArea,
   TextContent,
+  TextInput,
   TextVariants,
+  ValidatedOptions
 } from '@patternfly/react-core';
 import { LocaleContext } from '../context/LocaleContext';
 
@@ -19,7 +19,7 @@ import './Feedback.scss';
 export interface FeedbackFormProps {
   email?: string;
   onCloseModal: () => void;
-  onSubmit: () => void;
+  onSubmit: (email: string, textAreaValue: string, checked: boolean) => void;
   onClickBack: () => void;
   handleFeedbackError: () => void;
   modalTitle: string;
@@ -46,17 +46,45 @@ export const FeedbackForm = ({
   submitTitle,
 }: FeedbackFormProps) => {
   const intl = React.useContext(LocaleContext);
+  const [currentEmail, setCurrentEmail] = useState(email ? email : '');
   const [textAreaValue, setTextAreaValue] = useState('');
+  const [emailValid, setEmailValid] = useState(ValidatedOptions.default);
   const [checked, setChecked] = useState(false);
 
   async function handleModalSubmission() {
     try {
-      onSubmit();
+      const emailAddress = checked && currentEmail ? currentEmail : '';
+      onSubmit(emailAddress, textAreaValue, checked);
     } catch (err) {
       handleFeedbackError();
     }
   }
 
+
+  const validateEmail = (email: string) => email
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+
+  const isSubmitButtonDisabled = () => {
+    if (feedbackType !== '[Research Opportunities]') {
+      if(textAreaValue.length > 1 && checked &&  validateEmail(currentEmail)) {
+        return false;
+      } else if(textAreaValue.length > 1 && !checked){
+        return false;
+      }
+      return true
+     }
+     else {
+      if (checked && validateEmail(currentEmail)) {
+        return false;
+      }
+      else {
+        return true;
+      }
+     }
+  }
   return (
     <div className="chr-c-feedback-content">
       <TextContent>
@@ -89,13 +117,15 @@ export const FeedbackForm = ({
       </Form>
       {checked ? (
         <>
-         {/* TODO: Add code to prompt for email if none is provide along with validation that the email address is valid. */}
           <div className="pf-u-font-family-heading-sans-serif chr-c-feedback-email">{intl.email}</div>
-          <Panel variant="raised" className="chr-c-feedback-panel">
-            <PanelMain>
-              <PanelMainBody className="chr-c-feedback-panel__body">{email}</PanelMainBody>
-            </PanelMain>
-          </Panel>
+          <TextInput value={currentEmail} onChange={(value) => setCurrentEmail(value)}
+            validated={emailValid}
+            onBlur={()=>!validateEmail(currentEmail) ? setEmailValid(ValidatedOptions.error) : setEmailValid(ValidatedOptions.default)}
+            id="textInput-basic-2"
+            type="email"
+            aria-label="Error state username example"
+          />
+          {emailValid === ValidatedOptions.error ? <Alert variant="danger" isInline isPlain title="Email address is invalid." /> : <></>}
         </>
       ) : (
         ''
@@ -107,7 +137,7 @@ export const FeedbackForm = ({
           key="confirm"
           variant="primary"
           // eslint-disable-next-line no-nested-ternary
-          isDisabled={feedbackType !== '[Research Opportunities]' ? (textAreaValue.length > 1 ? false : true) : !checked}
+          isDisabled={isSubmitButtonDisabled()}
           onClick={handleModalSubmission}
         >
           {submitTitle}

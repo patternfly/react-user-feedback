@@ -13,7 +13,7 @@ const FeedbackError = ({ onCloseModal }: FeedbackErrorProps) => {
   const intl = React.useContext(LocaleContext);
   return (
     <div className="chr-c-feedback-success-content">
-      <CheckIcon size="md" color="var(--pf-global--success-color--100)" className="pf-u-mx-auto" />
+      <CheckIcon color="var(--pf-global--success-color--100)" className="pf-u-mx-auto" />
       <TextContent>
         <Text component={TextVariants.h1}>{intl.somethingWentWrong}</Text>
         <Text>

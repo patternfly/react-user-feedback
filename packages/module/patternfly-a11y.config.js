@@ -16,7 +16,7 @@ const urls = Object.keys(fullscreenRoutes)
 module.exports = {
   prefix: 'http://localhost:5001',
   waitFor,
-  crawl: false,
+  crawl: true,
   urls: [...urls],
   ignoreRules: [
     'color-contrast',

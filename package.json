@@ -19,10 +19,8 @@
     "lint": "yarn lint:js && yarn lint:md",
     "test": "echo 'Disabled JEST testing'",
     "_test": "TZ=EST jest packages",
-    "test:a11y": "echo 'Disabled a11y testing.'",
-    "_test:a11y": "yarn workspace @patternfly/react-user-feedback test:a11y",
-    "serve:a11y": "echo 'Disabled a11y testing.",
-    "_serve:a11y": "yarn workspace @patternfly/react-user-feedback serve:a11y",
+    "test:a11y": "yarn workspace @patternfly/react-user-feedback test:a11y",
+    "serve:a11y": "yarn workspace @patternfly/react-user-feedback serve:a11y",
     "prepare": "husky install"
   },
   "devDependencies": {

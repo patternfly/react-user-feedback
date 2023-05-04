@@ -42,7 +42,7 @@ yarn lint
 ```
 
 ### Accessability
-Accessability (a11y) tests are used to make sure the extension is meeting the same a11y guidelines as PatternFly. Running the a11y tests require that the documentation is built and served.  
+Accessability (a11y) tests are used to make sure the extension is meeting the same a11y guidelines as PatternFly. Running the a11y tests require that the documentation is built and served.  Accessability tests are run on port 5001. 
 
 To build the documentation type the following in a terminal:
 ```

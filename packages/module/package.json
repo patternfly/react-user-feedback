@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/patternfly/react-user-feedback#readme",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "prerelease"
   },
   "resolutions": {
     "@patternfly/react-icons": "^4.93.6"

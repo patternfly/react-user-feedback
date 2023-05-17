@@ -46,6 +46,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
     setModalPage("feedbackHome");
   };
 
+  const updateEmail = (email: string) => {if (emailRef.current !== email) {emailRef.current = email}}
   const onSubmit = (feedbackPage: FeedbackPages, results: boolean | Promise<boolean>) => {
     if (results instanceof Promise) {
       results.then((results) => {
@@ -111,7 +112,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
               let results: boolean | Promise<boolean> = true;
               if (onShareFeedback && typeof onShareFeedback === 'function') {
                 results = onShareFeedback(email, textAreaValue);
-                emailRef.current = email;
+               updateEmail(email);
               }
               onSubmit('feedbackSuccess', results)
             }
@@ -134,7 +135,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
               let results: boolean | Promise<boolean>  = true;
               if (onReportABug && typeof onReportABug === 'function') {
                 results = onReportABug(email, textAreaValue);
-                emailRef.current = email;
+                updateEmail(email);
               }
               onSubmit('bugReportSuccess', results)
             }}
@@ -163,7 +164,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
               let results : boolean | Promise<boolean> = true;
               if (onJoinMailingList && typeof onJoinMailingList === 'function') {
                 results = onJoinMailingList(email);
-                emailRef.current = email;
+                updateEmail(email);
               }
               onSubmit('informDirectionSuccess', results)
             }

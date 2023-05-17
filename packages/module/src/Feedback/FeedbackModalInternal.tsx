@@ -46,7 +46,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
     setModalPage("feedbackHome");
   };
 
-  const updateEmail = (email: string) => {if (emailRef.current !== email) {emailRef.current = email}}
+  const updateEmail = (email: string) => {if (emailRef.current !== email && email !== '') {emailRef.current = email}}
   const onSubmit = (feedbackPage: FeedbackPages, results: boolean | Promise<boolean>) => {
     if (results instanceof Promise) {
       results.then((results) => {

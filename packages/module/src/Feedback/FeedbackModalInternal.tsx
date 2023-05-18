@@ -46,12 +46,13 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
     setModalPage("feedbackHome");
   };
 
-  const onSubmit = (feedbackPage: FeedbackPages, results: boolean) => {
-    if (results === false) {
-      setModalPage("feedbackError");
-    } else {
-      setModalPage(feedbackPage);
-    }
+  const updateEmail = (email: string) => {if (emailRef.current !== email && email !== '') {emailRef.current = email}}
+  const onSubmit = (feedbackPage: FeedbackPages, results: boolean | Promise<boolean>) => {
+    if (results instanceof Promise) {
+      results.then((results) => {
+        results === false ? setModalPage("feedbackError") : setModalPage(feedbackPage);
+      });
+    } else { results === false ? setModalPage("feedbackError") : setModalPage(feedbackPage); }
   }
 
   const ModalDescription = ({ modalPage }: { modalPage: FeedbackPages }) => {
@@ -108,10 +109,10 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
             email={emailRef.current}
             onCloseModal={handleCloseModal}
             onSubmit={(email: string, textAreaValue: string) => {
-              let results = true;
+              let results: boolean | Promise<boolean> = true;
               if (onShareFeedback && typeof onShareFeedback === 'function') {
                 results = onShareFeedback(email, textAreaValue);
-                emailRef.current = email;
+               updateEmail(email);
               }
               onSubmit('feedbackSuccess', results)
             }
@@ -131,10 +132,10 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
             email={emailRef.current}
             onCloseModal={handleCloseModal}
             onSubmit={(email: string, textAreaValue: string) => {
-              let results = true;
+              let results: boolean | Promise<boolean>  = true;
               if (onReportABug && typeof onReportABug === 'function') {
                 results = onReportABug(email, textAreaValue);
-                emailRef.current = email;
+                updateEmail(email);
               }
               onSubmit('bugReportSuccess', results)
             }}
@@ -160,10 +161,10 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
             email={emailRef.current}
             onCloseModal={handleCloseModal}
             onSubmit={(email: string, _textAreaValue: string) => {
-              let results = true;
+              let results : boolean | Promise<boolean> = true;
               if (onJoinMailingList && typeof onJoinMailingList === 'function') {
                 results = onJoinMailingList(email);
-                emailRef.current = email;
+                updateEmail(email);
               }
               onSubmit('informDirectionSuccess', results)
             }

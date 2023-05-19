@@ -17,32 +17,22 @@ import feedbackImage from '@patternfly/react-user-feedback/dist/esm/images/rh_fe
 
 ## Examples
 
-### Basic user feedback 
+### Basic modal
 
 ```js file="./Basic.tsx"
-
 ```
 
-###  User feedback with external links
-
-```js file="./URL.tsx"
-
-```
-
-### Advanced user feedback modal
+### Advanced modal
 
 ```js file="./Advanced.tsx"
-
 ```
 
-### Advanced user feedback modal with with email passed to modal
+###  Modal with external links
 
-```js file="./AdvancedStaticEmail.tsx"
-
+```js file="./URL.tsx"
 ```
 
-### User feedback with localization support
+### Localized modal
 
 ```js file="./i18n.tsx"
-
 ```

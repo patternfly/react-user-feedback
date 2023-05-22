@@ -32,7 +32,6 @@ For example, you can allow users to access the modal by selecting a masthead’s
 
 ![Image of expanded dropdown menu with link to sharing feedback](/img/dropdown-selection.png)
 
-
 ## Variations
 
 ### Modal items open forms within the modal
@@ -46,7 +45,6 @@ Integrated forms can collect different kinds of feedback:
     The general feedback form allows users to enter feedback into a text box and submit.
 
     ![Image of a form  within a  modal to share feedback](/img/share-feedback.png)
-    
 
 - Bug report form
 

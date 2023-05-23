@@ -21,7 +21,7 @@ export const AdvancedStaticEmailExample: React.FunctionComponent = () => {
             console.log (`Email Address: ${email}`);
             return false;
         }}
-        onOpenSupportCase='http://www.redhat.com'
+        onOpenSupportCase='https://pf-user-feedback-extension-form-demos.surge.sh/requestSupport.html'
         onReportABug={(email:string, bug:string)=>{
             console.log (`Email Address: ${email} Bug: ${bug}`)
             return true;}}

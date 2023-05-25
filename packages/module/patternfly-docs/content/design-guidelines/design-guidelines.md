@@ -15,7 +15,7 @@ Note: User feedback lives in its own package at [@patternfly/react-user-feedback
 
 ## Elements
 
-![Image of advanced feedback modal with annotations](/img/advanced-user-feedback.png)
+![Image of advanced feedback modal with annotations](./img/advanced-user-feedback.png)
 
 1. **Title:** Communicates the title of the modal.
 2. **Description text:** Provides a short description of the form's purpose. 
@@ -30,7 +30,7 @@ The user feedback modal may be accessed in your product's help menu.
 
 For example, you can allow users to access the modal by selecting a masthead’s help icon and choosing “Share feedback” in the dropdown menu:
 
-![Image of expanded dropdown menu with link to sharing feedback](/img/dropdown-selection.png)
+![Image of expanded dropdown menu with link to sharing feedback](./img/dropdown-selection.png)
 
 ## Variations
 
@@ -44,22 +44,22 @@ Integrated forms can collect different kinds of feedback:
 
     The general feedback form allows users to enter feedback into a text box and submit.
 
-    ![Image of a form  within a  modal to share feedback](/img/share-feedback.png)
+    ![Image of a form  within a  modal to share feedback](./img/share-feedback.png)
 
 - Bug report form
 
     The bug report form allows users to enter feedback into a text box and submit. Its description directs users to a URL where they can submit a support ticket for critical issues.
 
-    ![Image of a form within a modal to report bugs](/img/report-bug.png)
+    ![Image of a form within a modal to report bugs](./img/report-bug.png)
 
 - User research opt-in form
 
     The user research opt-in form allows users to enter their email address to participate in future research efforts. 
 
-    ![Image of a form within a modal to sign up for research opportunities](/img/research-opportunities.png)
+    ![Image of a form within a modal to sign up for research opportunities](./img/research-opportunities.png)
 
 ### Modal items link to external URLs
 
 Selecting an item redirects users to an external URL (like a qualtrics form) that opens in a separate tab.
 
-![Image of modal with links to external forms](/img/user-feedback-external-links.png)
+![Image of modal with links to external forms](./img/user-feedback-external-links.png)

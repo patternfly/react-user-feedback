@@ -1,61 +1,73 @@
-# PatternFly React User Feedback
+# User feedback
 
-This project is a [PatternFly](https://github.com/patternfly/patternfly-react) React based component used to collect user feedback.  Examples of how to use this extension are documented on
-the PatternFly website under [Extensions](https://www.patternfly.org/v4/extensions/user-feedback)
+This project is a [PatternFly](https://github.com/patternfly/patternfly-react) React extension that products can use to collect feedback from users. To view examples of this extension’s use, [view its documentation on PatternFly](https://www.patternfly.org/v4/extensions/user-feedback).
 
 ## Installing dependencies
-This extension uses [yarn](https://yarnpkg.com/) for building and development.  You can install the dependencies for this project using the yarn install.
+
+[Yarn](https://yarnpkg.com/) is used to develop and build user feedback. To install dependencies for this project, use the `yarn install` terminal command:
+
 ```
 yarn install 
 ```
+
 ## Building the extension
-To build the user-feedback extension locally first follow the instructions to install the dependencies.  Once that has completed type the following in a terminal:
+
+Once dependencies are installed, you can build user feedback locally using the `yard build` terminal command:
+
 ```
 yarn build
 ```
 
 ## Development instructions
 
-
 ### Using the development server
-The development server will show you the documentation for this product along with working examples.  This is what is used for running and developing the feedback extension. 
 
-You can start the development server by typing:
+The development server runs and develops user feedback, and also contains documentation and working examples. To start the development server, use the `yarn start` terminal command:
+
+
 ```
 yarn start 
 ```
 
-### Running Unit Tests
-[Jest](https://jestjs.io) along with [React testing library](https://testing-library.com/docs/react-testing-library/intro/) are used to test the components that make up this extension.
+### Running unit tests
 
-To run unit tests first you can type:
+User feedback is tested with [Jest](https://jestjs.io) and the [React testing library](https://testing-library.com/docs/react-testing-library/intro/). To run unit tests, use the `yarn test` terminal command: 
+
+
 ```
 yarn test
 ```
 
 ### Linting
-[ESLint](https://eslint.org/) is used to ensure everyone that contributes to this project is following the same best practices, and to statically analyze the code.
 
-To run the linter:
+[ESLint](https://eslint.org/) is used to analyze user feedback’s source code to flag potential quality errors. This also ensures that all contributors follow the same best practices. To run the linter, use the `yarn lint` terminal command:
+
+
 ```
 yarn lint
 ```
 
-### Accessability
-Accessability (a11y) tests are used to make sure the extension is meeting the same a11y guidelines as PatternFly. Running the a11y tests require that the documentation is built and served.  Accessability tests are run on port 5001. 
+### Accessibility
+Accessibility (a11y) tests are used to ensure that user feedback meets the same a11y guidelines as PatternFly. To run a11y tests, you must build and serve its documentation by using the `yarn build:docs` and `yarn serve:docs` terminal commands:
 
-To build the documentation type the following in a terminal:
+
 ```
 yarn build:docs
 yarn serve:docs
 ```
 
-In a new terminal window to run the accessibility tests type:
+In a new terminal window, use the `yarn test:a11y` to run accessibility tests:
+
 ```
 yarn test:a11y
 ```
 
-Once the accessibility tests have finished running you can run yarn **serve:a11y** to locally view the generated report.
+Once the accessibility tests have finished running, you can locally view the generated report using the the `yarn serve:a11y` terminal command:
+
+```
+yarn serve:a11y
+```
 
 ### Committing changes
-When commiting changes follow the guidelines in [semantic release](https://github.com/semantic-release/semantic-release)
+
+When commiting changes to this repo follow the [semantic release guidelines](https://github.com/semantic-release/semantic-release).

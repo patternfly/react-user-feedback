@@ -65,7 +65,7 @@ export const AdvancedExample: React.FunctionComponent = () => {
         onJoinMailingList={()=>
              true
         }
-        onOpenSupportCase='http://www.redhat.com'
+        onOpenSupportCase='https://pf-user-feedback-extension-form-demos.surge.sh/requestSupport.html'
         onReportABug={()=>true}
         isOpen={isOpen}
         onClose={()=>setIsOpen(false)}/>

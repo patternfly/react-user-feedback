@@ -9,10 +9,10 @@ export const URLExample: React.FunctionComponent = () => {
    return <>
     <Button onClick={handleButtonClicked}>Show Modal</Button>
     <FeedbackModal 
-        onShareFeedback='https://console.redhat.com/self-managed-feedback-form' 
-        onJoinMailingList='https://console.redhat.com/self-managed-research-form'
-        onOpenSupportCase='http://www.patternfly.org'
-        onReportABug='https://www.patternfly.org'
+        onShareFeedback='https://pf-user-feedback-extension-form-demos.surge.sh/submitFeedback.html' 
+        onJoinMailingList='https://pf-user-feedback-extension-form-demos.surge.sh/joinMailingList.html'
+        onOpenSupportCase='https://pf-user-feedback-extension-form-demos.surge.sh/requestSupport.html'
+        onReportABug='https://pf-user-feedback-extension-form-demos.surge.sh/reportBug.html'
         isOpen={isOpen}
         onClose={()=>setIsOpen(false)}/>
     </>

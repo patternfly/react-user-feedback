@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/@patternfly/patternfly/patternfly.min.css">
+</head>
+
+<body style="margin: 4rem; height: 80vh;">
+    <div class="pf-l-stack pf-m-gutter">
+        <div class="pf-l-stack__item">
+            <div class="pf-c-title pf-m-2xl">Report A Bug Example </div>
+        </div>
+        <div class="pf-l-stack__item">
+            <form class="pf-c-form pf-m-horizontal" novalidate>
+                <div class="pf-c-form__group">
+                    <div class="pf-c-form__group-label"><label class="pf-c-form__label" for="form-horizontal-name">
+                            <span class="pf-c-form__label-text">Email</span>&nbsp;<span class="pf-c-form__label-required"
+                                aria-hidden="true">&#42;</span></label>
+                    </div>
+                    <div class="pf-c-form__group-control">
+                        <input class="pf-c-form-control" type="text" id="form-horizontal-name"
+                            name="form-horizontal-name" required />
+                    </div>
+                </div>
+                <div class="pf-c-form__group">
+                    <div class="pf-c-form__group-label"><label class="pf-c-form__label" for="form-horizontal-info">
+                            <span class="pf-c-form__label-text">Bug</span></label>&nbsp;<span
+                            class="pf-c-form__group-label-help" aria-label="More information for information field"
+                            aria-describedby="form-horizontal-info" role="button" type="button" tabindex="0"><i
+                                class="pficon pf-icon-help" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="pf-c-form__group-control">
+                        <textarea class="pf-c-form-control" type="text" id="form-horizontal-info"
+                            name="form-horizontal-info" aria-label="Textarea example"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="pf-l-stack__item">
+            <button class="pf-c-button pf-m-primary" style="width: fit-content;" type="button">Submit</button>
+            <button class="pf-c-button pf-m-secondary" style="width: fit-content" type="button">Cancel</button>
+        </div>
+    </div>
+
+</html>

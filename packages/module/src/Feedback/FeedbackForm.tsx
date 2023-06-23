@@ -98,7 +98,7 @@ export const FeedbackForm = ({
           <FormGroup label={textareaLabel} fieldId="horizontal-form-exp">
             <TextArea
               value={textAreaValue}
-              onChange={(value) => setTextAreaValue(value)}
+              onChange={(_event, value) => setTextAreaValue(value)}
               className="chr-c-feedback-text-area"
               name="feedback-description-text"
               id="feedback-description-text"
@@ -118,7 +118,7 @@ export const FeedbackForm = ({
       {checked ? (
         <>
           <div className="pf-u-font-family-heading-sans-serif chr-c-feedback-email">{intl.email}</div>
-          <TextInput value={currentEmail} onChange={(value) => setCurrentEmail(value)}
+          <TextInput value={currentEmail} onChange={(_event, value) => setCurrentEmail(value)}
             validated={emailValid}
             onBlur={()=>!validateEmail(currentEmail) ? setEmailValid(ValidatedOptions.error) : setEmailValid(ValidatedOptions.default)}
             id="textInput-basic-2"

@@ -1,12 +1,12 @@
 {
   "name": "@patternfly/react-user-feedback",
-  "version": "5.0.0-alpha.0",
+  "version": "5.0.0-prerelease.0",
   "description": "A feedback extension to allow users to provide input on products.",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "publishConfig": {
     "access": "public",
-    "tag": "alpha"
+    "tag": "prerelease"
   },
   "scripts": {
     "build": "yarn build:js && yarn build:esm && yarn build:fed:packages && yarn copy:files:esm && yarn copy:files:cjs",

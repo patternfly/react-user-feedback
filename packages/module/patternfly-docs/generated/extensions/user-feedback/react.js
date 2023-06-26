@@ -6,6 +6,10 @@ const pageData = {
   "id": "User feedback",
   "section": "extensions",
   "subsection": "",
+  "deprecated": false,
+  "beta": false,
+  "demo": false,
+  "newImplementationLink": false,
   "source": "react",
   "tabName": null,
   "slug": "/extensions/user-feedback/react",
@@ -84,7 +88,7 @@ pageData.relativeImports = {
 };
 pageData.examples = {
   'Basic modal': props => 
-    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal} from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\n\nexport const URLExample: React.FunctionComponent = () => {\n   const  [isOpen, setIsOpen] = React.useState<boolean>(false);\n   const handleButtonClicked = () => {setIsOpen(true)}; \n   return <>\n    <Button onClick={handleButtonClicked}>Show Modal</Button>\n    <FeedbackModal \n        onShareFeedback='https://pf-user-feedback-extension-form-demos.surge.sh/shareFeedback.html' \n        onJoinMailingList='https://pf-user-feedback-extension-form-demos.surge.sh/joinMailingList.html'\n        onOpenSupportCase='https://pf-user-feedback-extension-form-demos.surge.sh/requestSupport.html'\n        onReportABug='https://pf-user-feedback-extension-form-demos.surge.sh/reportBug.html'\n        isOpen={isOpen}\n        onClose={()=>setIsOpen(false)}/>\n    </>\n}","title":"Basic modal","lang":"js"}}>
+    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal} from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\n\nexport const URLExample: React.FunctionComponent = () => {\n   const  [isOpen, setIsOpen] = React.useState<boolean>(false);\n   const handleButtonClicked = () => {setIsOpen(true)}; \n   return <>\n    <Button onClick={handleButtonClicked}>Show Modal</Button>\n    <FeedbackModal \n        onShareFeedback='https://pf-user-feedback-extension-form-demos.surge.sh/submitFeedback.html' \n        onJoinMailingList='https://pf-user-feedback-extension-form-demos.surge.sh/joinMailingList.html'\n        onOpenSupportCase='https://pf-user-feedback-extension-form-demos.surge.sh/requestSupport.html'\n        onReportABug='https://pf-user-feedback-extension-form-demos.surge.sh/reportBug.html'\n        isOpen={isOpen}\n        onClose={()=>setIsOpen(false)}/>\n    </>\n}","title":"Basic modal","lang":"js"}}>
       
       <p {...{"className":"ws-p"}}>
         {`To collect data, you can link modal items to external sources instead of a built in form. For example, you can link to a custom form, which will be opened in a new tab.`}

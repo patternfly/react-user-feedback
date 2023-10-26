@@ -1,6 +1,6 @@
 {
   "name": "@patternfly/react-user-feedback",
-  "version": "1.0.0",
+  "version": "5.0.0-prerelease.0",
   "description": "A feedback extension to allow users to provide input on products.",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/patternfly/react-user-feedback#readme",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "prerelease"
   },
   "resolutions": {
     "@patternfly/react-icons": "^4.93.6"

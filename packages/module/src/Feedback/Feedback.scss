@@ -3,7 +3,7 @@
   padding: 0;
 
   .pf-c-content {
-    margin-bottom: var(--pf-v5-c-content--MarginBottom);
+    margin-bottom: var(--pf-v6-c-content--MarginBottom);
   }
 
   .pf-c-modal-box__body {
@@ -21,11 +21,11 @@
 }
 
 .chr-c-feedback-cards {
-  margin: var(--pf-v5-global--spacer--sm);
+  margin: var(--pf-v6-global--spacer--sm);
 }
 
 .chr-c-feedback-card-title {
-  color: var(--pf-v5-global--link--Color);
+  color: var(--pf-v6-global--link--Color);
 }
 
 .chr-c-feedback {
@@ -37,26 +37,26 @@
 .chr-c-feedback-content {
   display: flex;
   flex-direction: column;
-  padding-right: var(--pf-v5-global--spacer--lg);
-  padding-top: var(--pf-v5-global--spacer--lg);
-  margin: var(--pf-v5-global--spacer--md);
+  padding-right: var(--pf-v6-global--spacer--lg);
+  padding-top: var(--pf-v6-global--spacer--lg);
+  margin: var(--pf-v6-global--spacer--md);
 }
 
 .chr-c-feedback-button {
-  margin: var(--pf-v5-global--spacer--sm);
+  margin: var(--pf-v6-global--spacer--sm);
   text-align: left;
   position: absolute;
-  bottom: var(--pf-v5-global--spacer--md);
+  bottom: var(--pf-v6-global--spacer--md);
 }
 
 .chr-c-feedback-footer-button {
-  margin: var(--pf-v5-global--spacer--md);
+  margin: var(--pf-v6-global--spacer--md);
 }
 
 .chr-c-feedback-buttons {
-  margin: var(--pf-v5-global--spacer--sm);
+  margin: var(--pf-v6-global--spacer--sm);
   position: absolute;
-  bottom: var(--pf-v5-global--spacer--md);
+  bottom: var(--pf-v6-global--spacer--md);
 }
 
 .chr-c-feedback-success-content {
@@ -69,20 +69,20 @@
 }
 
 .chr-c-feedback-email {
-  margin-top: var(--pf-v5-global--spacer--lg);
+  margin-top: var(--pf-v6-global--spacer--lg);
   overflow: hidden;
 }
 
 .chr-c-feedback-image {
-  background-color: var(--pf-v5-global--palette--black-150);
+  background-color: var(--pf-v6-global--palette--black-150);
 }
 
 .chr-c-feedback-panel {
-  margin-bottom: var(--pf-v5-global--spacer--lg);
+  margin-bottom: var(--pf-v6-global--spacer--lg);
   &__body {
     padding-bottom: 4px;
     padding-top: 4px;
-    border-bottom: 1px solid var(--pf-v5-global--palette--black-500);
+    border-bottom: 1px solid var(--pf-v6-global--palette--black-500);
   }
 }
 

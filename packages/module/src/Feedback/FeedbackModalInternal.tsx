@@ -65,18 +65,18 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
               <Text>{intl.helpUsImproveHCC}</Text>
             </TextContent>
             <div className="chr-c-feedback-cards">
-              <Card isSelectableRaised isCompact onClick={() => { typeof onShareFeedback === 'string' ? window.open(onShareFeedback, '_blank') : setModalPage('feedbackOne') }}>
+              <Card  isCompact onClick={() => { typeof onShareFeedback === 'string' ? window.open(onShareFeedback, '_blank') : setModalPage('feedbackOne') }}>
                 <CardTitle className="chr-c-feedback-card-title">{intl.shareFeedback} {typeof onShareFeedback === 'string' ? <ExternalLinkAltIcon /> : null}</CardTitle>
                 <CardBody>{intl.howIsConsoleExperience} </CardBody>
               </Card>
               <br />
               {onReportABug ?
-                <><Card isSelectableRaised isCompact onClick={() => { typeof onReportABug === 'string' ? window.open(onReportABug, '_blank') : setModalPage('reportBugOne'); }}>
+                <><Card  isCompact onClick={() => { typeof onReportABug === 'string' ? window.open(onReportABug, '_blank') : setModalPage('reportBugOne'); }}>
                   <CardTitle className="chr-c-feedback-card-title">{intl.reportABug} {typeof onReportABug === 'string' ? <ExternalLinkAltIcon /> : null} </CardTitle> 
                   <CardBody>{intl.describeBugUrgentCases}</CardBody>
                 </Card><br /></> : null}
               {onOpenSupportCase ?<Card
-                isSelectableRaised
+                
                 isCompact
                 onClick={() => {
                    window.open(onOpenSupportCase, '_blank');
@@ -91,7 +91,7 @@ export const FeedbackModalInternal = memo(({ email, isOpen, onShareFeedback, onJ
               </Card> : null}
               <br />
               {onJoinMailingList ?
-                <Card isSelectableRaised isCompact onClick={() => { typeof onJoinMailingList === 'string' ? window.open(onJoinMailingList, '_blank') : setModalPage('informDirection') }}>
+                <Card  isCompact onClick={() => { typeof onJoinMailingList === 'string' ? window.open(onJoinMailingList, '_blank') : setModalPage('informDirection') }}>
                   <CardTitle className="chr-c-feedback-card-title">
                     <Text>{intl.informDirection} {typeof onJoinMailingList === 'string' ? <ExternalLinkAltIcon /> : null}</Text>
                   </CardTitle>

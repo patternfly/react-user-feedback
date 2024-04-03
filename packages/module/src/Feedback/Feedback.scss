@@ -77,15 +77,6 @@
   background-color: var(--pf-t--global--background--color--secondary--default);
 }
 
-.chr-c-feedback-panel {
-  margin-bottom: var(--pf-t--global--spacer--lg);
-  &__body {
-    padding-bottom: 4px;
-    padding-top: 4px;
-    border-bottom: 1px solid var(--pf-t--global--border--color--nonstatus--gray--default);
-  }
-}
-
 .chr-c-feedback-text-area {
   resize: none;
 }

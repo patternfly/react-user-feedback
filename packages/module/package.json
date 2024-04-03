@@ -33,11 +33,11 @@
   },
   "homepage": "https://github.com/patternfly/react-user-feedback#readme",
   "resolutions": {
-    "@patternfly/react-icons": "6.0.0-alpha.18"
+    "@patternfly/react-icons": "6.0.0-alpha.19"
   },
   "dependencies": {
-    "@patternfly/react-core": "6.0.0-alpha.48",
-    "@patternfly/react-icons": "6.0.0-alpha.18"
+    "@patternfly/react-core": "6.0.0-alpha.50",
+    "@patternfly/react-icons": "6.0.0-alpha.19"
   },
   "peerDependencies": {
     "react": "^17 || ^18",
@@ -53,10 +53,10 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@patternfly/patternfly-a11y": "^4.3.1",
-    "@patternfly/documentation-framework": "6.0.0-alpha.18",
-    "@patternfly/patternfly":"6.0.0-alpha.109",
-    "@patternfly/react-table": "6.0.0-alpha.48",
-    "@patternfly/react-code-editor": "6.0.0-alpha.48",
+    "@patternfly/documentation-framework": "6.0.0-alpha.20",
+    "@patternfly/patternfly":"6.0.0-alpha.117",
+    "@patternfly/react-table": "6.0.0-alpha.50",
+    "@patternfly/react-code-editor": "6.0.0-alpha.50",
     "node-sass-package-importer": "^5.3.2",
     "fs-extra": "^9.1.0",
     "glob": "^7.2.3",

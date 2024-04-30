@@ -1,5 +1,8 @@
 import React, { ReactNode, useState } from 'react';
 import {
+  ActionList,
+  ActionListGroup,
+  ActionListItem,
   Alert,
   Button,
   Checkbox,
@@ -43,7 +46,7 @@ export const FeedbackForm = ({
   feedbackType,
   checkboxDescription,
   textAreaHidden = false,
-  submitTitle,
+  submitTitle
 }: FeedbackFormProps) => {
   const intl = React.useContext(LocaleContext);
   const [currentEmail, setCurrentEmail] = useState(email ? email : '');
@@ -60,8 +63,8 @@ export const FeedbackForm = ({
     }
   }
 
-
-  const validateEmail = (email: string) => email
+  const validateEmail = (email: string) =>
+    email
       .toLowerCase()
       .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -69,29 +72,27 @@ export const FeedbackForm = ({
 
   const isSubmitButtonDisabled = () => {
     if (feedbackType !== '[Research Opportunities]') {
-      if(textAreaValue.length > 1 && checked &&  validateEmail(currentEmail)) {
+      if (textAreaValue.length > 1 && checked && validateEmail(currentEmail)) {
         return false;
-      } else if(textAreaValue.length > 1 && !checked){
+      } else if (textAreaValue.length > 1 && !checked) {
         return false;
       }
-      return true
-     }
-     else {
+      return true;
+    } else {
       if (checked && validateEmail(currentEmail)) {
         return false;
-      }
-      else {
+      } else {
         return true;
       }
-     }
-  }
+    }
+  };
   return (
     <div className="chr-c-feedback-content">
-      <TextContent>
+      <TextContent className="chr-c-feedback-heading">
         <Text component={TextVariants.h1}>{modalTitle}</Text>
         {modalDescription}
       </TextContent>
-      <Form>
+      <Form className="chr-c-feedback-content-main">
         {textAreaHidden ? (
           ''
         ) : (
@@ -118,37 +119,69 @@ export const FeedbackForm = ({
       {checked ? (
         <>
           <div className="pf-u-font-family-heading-sans-serif chr-c-feedback-email">{intl.email}</div>
-          <TextInput value={currentEmail} onChange={(_event, value) => setCurrentEmail(value)}
+          <TextInput
+            value={currentEmail}
+            onChange={(_event, value) => setCurrentEmail(value)}
             validated={emailValid}
-            onBlur={()=>!validateEmail(currentEmail) ? setEmailValid(ValidatedOptions.error) : setEmailValid(ValidatedOptions.default)}
+            onBlur={() =>
+              !validateEmail(currentEmail)
+                ? setEmailValid(ValidatedOptions.error)
+                : setEmailValid(ValidatedOptions.default)
+            }
             id="textInput-basic-2"
             type="email"
             aria-label="Error state username example"
           />
-          {emailValid === ValidatedOptions.error ? <Alert variant="danger" isInline isPlain title="Email address is invalid." /> : <></>}
+          {emailValid === ValidatedOptions.error ? (
+            <Alert variant="danger" isInline isPlain title="Email address is invalid." />
+          ) : (
+            <></>
+          )}
         </>
       ) : (
         ''
       )}
-      <div className="chr-c-feedback-buttons">
-        <Button
-          ouiaId="submit-feedback"
-          className="chr-c-feedback-footer-button"
-          key="confirm"
-          variant="primary"
-          // eslint-disable-next-line no-nested-ternary
-          isDisabled={isSubmitButtonDisabled()}
-          onClick={handleModalSubmission}
-        >
-          {submitTitle}
-        </Button>
-        <Button ouiaId="back-feedback" className="chr-c-feedback-footer-button" key="back" variant="secondary" onClick={onClickBack}>
-          {intl.back}
-        </Button>
-        <Button ouiaId="cancel-feedback" className="chr-c-feedback-footer-button" key="cancel" variant="link" onClick={onCloseModal}>
-          {intl.cancel}
-        </Button>
-      </div>
+      <ActionList className="chr-c-feedback-footer">
+        <ActionListGroup>
+          <ActionListItem>
+            <Button
+              ouiaId="submit-feedback"
+              className="chr-c-feedback-footer-button"
+              key="confirm"
+              variant="primary"
+              // eslint-disable-next-line no-nested-ternary
+              isDisabled={isSubmitButtonDisabled()}
+              onClick={handleModalSubmission}
+            >
+              {submitTitle}
+            </Button>
+          </ActionListItem>
+          <ActionListItem>
+            <Button
+              ouiaId="back-feedback"
+              className="chr-c-feedback-footer-button"
+              key="back"
+              variant="secondary"
+              onClick={onClickBack}
+            >
+              {intl.back}
+            </Button>
+          </ActionListItem>
+        </ActionListGroup>
+        <ActionListGroup>
+          <ActionListItem>
+            <Button
+              ouiaId="cancel-feedback"
+              className="chr-c-feedback-footer-button"
+              key="cancel"
+              variant="link"
+              onClick={onCloseModal}
+            >
+              {intl.cancel}
+            </Button>
+          </ActionListItem>
+        </ActionListGroup>
+      </ActionList>
     </div>
   );
 };

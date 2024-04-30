@@ -7,6 +7,7 @@ const pageData = {
   "section": "extensions",
   "subsection": "",
   "deprecated": false,
+  "template": false,
   "beta": false,
   "demo": false,
   "newImplementationLink": false,
@@ -82,9 +83,6 @@ const pageData = {
 pageData.liveContext = {
   FeedbackModal,
   feedbackImage
-};
-pageData.relativeImports = {
-  
 };
 pageData.examples = {
   'Basic modal': props => 

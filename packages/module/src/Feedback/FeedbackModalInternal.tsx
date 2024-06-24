@@ -3,6 +3,7 @@ import {
   Button,
   Card,
   CardBody,
+  CardHeader,
   CardTitle,
   Flex,
   FlexItem,
@@ -94,13 +95,22 @@ export const FeedbackModalInternal = memo(
                 <PanelMainBody className="chr-c-feedback-cards">
                   <Card
                     isCompact
+                    isClickable
                     variant="secondary"
-                    onClick={() => {
-                      typeof onShareFeedback === 'string'
-                        ? window.open(onShareFeedback, '_blank')
-                        : setModalPage('feedbackOne');
-                    }}
                   >
+                    <CardHeader
+                      selectableActions={{
+                        // eslint-disable-next-line no-console
+                        onClickAction: () => {
+                          typeof onShareFeedback === 'string'
+                            ? window.open(onShareFeedback, '_blank')
+                            : setModalPage('feedbackOne');
+                        },
+                        selectableActionId: "feedback-card-1",
+                        selectableActionAriaLabelledby: 'feedback-card-1',
+                        name: 'feedback-card'
+                      }}
+                    ></CardHeader>
                     <CardTitle>
                       {intl.shareFeedback} {typeof onShareFeedback === 'string' ? <ExternalLinkAltIcon /> : null}
                     </CardTitle>
@@ -109,13 +119,23 @@ export const FeedbackModalInternal = memo(
                   {onReportABug && (
                     <Card
                       isCompact
-                      variant="secondary"
-                      onClick={() => {
-                        typeof onReportABug === 'string'
-                          ? window.open(onReportABug, '_blank')
-                          : setModalPage('reportBugOne');
-                      }}
+                      isClickable
+                      variant='secondary'
                     >
+                    <CardHeader
+                      selectableActions={{
+                        // eslint-disable-next-line no-console
+                        onClickAction: () => {
+                          typeof onReportABug === 'string'
+                            ? window.open(onReportABug, '_blank')
+                            : setModalPage('reportBugOne');
+                        },
+                        selectableActionId: "report-bug-card-1",
+                        selectableActionAriaLabelledby: 'report-bug-card-1',
+                        name: 'report-bug-card'
+                      }}
+                    ></CardHeader>
+
                       <CardTitle>
                         {intl.reportABug} {typeof onReportABug === 'string' ? <ExternalLinkAltIcon /> : null}{' '}
                       </CardTitle>
@@ -125,11 +145,20 @@ export const FeedbackModalInternal = memo(
                   {onOpenSupportCase && (
                     <Card
                       isCompact
+                      isClickable
                       variant="secondary"
-                      onClick={() => {
-                        window.open(onOpenSupportCase, '_blank');
-                      }}
                     >
+                      <CardHeader
+                        selectableActions={{
+                          // eslint-disable-next-line no-console
+                          onClickAction: () => {
+                            window.open(onOpenSupportCase, '_blank');
+                          },
+                          selectableActionId: "open-support-case-card-1",
+                          selectableActionAriaLabelledby: 'open-support-case-card-1',
+                          name: 'open-support-case-card'
+                        }}
+                      ></CardHeader>
                       <CardTitle>
                         <Text>
                           {intl.openSupportCase} <ExternalLinkAltIcon />
@@ -141,13 +170,22 @@ export const FeedbackModalInternal = memo(
                   {onJoinMailingList && (
                     <Card
                       isCompact
+                      isClickable
                       variant="secondary"
-                      onClick={() => {
-                        typeof onJoinMailingList === 'string'
-                          ? window.open(onJoinMailingList, '_blank')
-                          : setModalPage('informDirection');
-                      }}
                     >
+                      <CardHeader
+                        selectableActions={{
+                          // eslint-disable-next-line no-console
+                          onClickAction: () => {
+                            typeof onJoinMailingList === 'string'
+                              ? window.open(onJoinMailingList, '_blank')
+                              : setModalPage('informDirection');
+                          },
+                          selectableActionId: "join-mailing-list-card-1",
+                          selectableActionAriaLabelledby: 'join-mailing-list-card-1',
+                          name: 'join-mailing-list-card'
+                        }}
+                      ></CardHeader>
                       <CardTitle>
                         <Text>
                           {intl.informDirection}{' '}

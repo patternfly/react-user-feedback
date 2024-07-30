@@ -162,13 +162,13 @@ pageData.examples = {
 
 const Component = () => (
   <React.Fragment>
-    <AutoLinkHeader {...{"id":"about","size":"h2","className":"ws-title ws-h2"}}>
+    <AutoLinkHeader {...{"id":"about","headingLevel":"h2","className":"ws-title ws-h2"}}>
       {`About`}
     </AutoLinkHeader>
     <p {...{"className":"pf-v6-c-content--p ws-p "}}>
       {`The user feedback extension is a PatternFly React based component used to collect user feedback. Examples of how to use this extension are documented below. This extensions allows users to submit feedback, report a bug, request support, as well as join a mailing list to stay updated on the latest news and research opportunities.`}
     </p>
-    <AutoLinkHeader {...{"id":"examples","size":"h2","className":"ws-title ws-h2"}}>
+    <AutoLinkHeader {...{"id":"examples","headingLevel":"h2","className":"ws-title ws-h2"}}>
       {`Examples`}
     </AutoLinkHeader>
     {React.createElement(pageData.examples["Basic modal"])}

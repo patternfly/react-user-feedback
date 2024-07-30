@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, TextContent, TextVariants } from '@patternfly/react-core';
+import { Button, Content, ContentVariants } from '@patternfly/react-core';
 import CheckIcon from '@patternfly/react-icons/dist/js/icons/check-icon';
 
 import './Feedback.scss';
@@ -16,10 +16,8 @@ const FeedbackSuccess = ({ onCloseModal, successTitle, successDescription }: Fee
   return (
     <div className="chr-c-feedback-success-content">
       <CheckIcon color="var(--pf-global--success-color--100)" className="pf-u-mx-auto" />
-      <TextContent>
-        <Text component={TextVariants.h1}>{successTitle}</Text>
-        <Text>{successDescription}</Text>
-      </TextContent>
+        <Content component={ContentVariants.h1}>{successTitle}</Content>
+        <Content>{successDescription}</Content>
       <Button variant="primary" onClick={onCloseModal}>
         {intl.close}
       </Button>

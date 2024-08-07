@@ -76,8 +76,7 @@ const pageData = {
     "Basic modal",
     "Advanced modal",
     "Advanced that autofills an email address",
-    "Modal with asynchronous call support",
-    "Modal with internationalization support"
+    "Modal with asynchronous call support"
   ]
 };
 pageData.liveContext = {
@@ -140,42 +139,24 @@ pageData.examples = {
         </code>
         {` function to send data to a backend service.`}
       </p>
-    </Example>,
-  'Modal with internationalization support': props => 
-    <Example {...pageData} {...props} {...{"code":"const i18nExample = {\n    getSupport: 'Lorem ipsum dolor sit amet support',\n    back: 'Lorem ipsum dolor sit amet back',\n    bugReported: 'Lorem ipsum dolor sit amet Bug Reported',\n    cancel: 'Cancel',\n    close: 'Close',\n    describeBug: \n      'Lorem ipsum dolor sit amet Describe the bug you encountered. For urgent issues, open a support case instead.',\n    describeBugUrgentCases: \n      'Lorem ipsum dolor sit amet Describe the bug you encountered. For urgent issues, open a support case instead.',\n    describeReportBug: \n    'Lorem ipsum dolor sit amet Describe the bug you encountered. Include where it is located and what action caused it. If this issue is urgent or blocking your workflow,',\n    directInfluence:\n    'Lorem ipsum dolor sit amet your feedback will directly influence the future of Red Hat’s products. Opt in below to hear about future research opportunities via email.',\n    email: 'Lorem ipsum dolor sit amet Email',\n    enterFeedback: 'Lorem ipsum dolor sit amet Enter your feedback',\n    feedback: 'Lorem ipsum dolor sit amet Feedback',\n    feedbackSent: 'Lorem ipsum dolor sit amet Feedback Sent',\n    helpUsImproveHCC: 'Lorem ipsum dolor sit amet Help us improve the Red Hat OpenShift.',\n    howIsConsoleExperience: 'Lorem ipsum dolor sit amet What has your experience been like so far?',\n    joinMailingList: 'Lorem ipsum dolor sit ametJoin mailing list',\n    informDirectionDescription: \n      'Lorem ipsum dolor sit ametBy participating in feedback sessions, usability tests, and interviews with our',\n    informDirection: 'Lorem ipsum dolor sit ametInform the direction of Red Hat',\n    learnAboutResearchOpportunities: 'Lorem ipsum dolor sit ametLearn about opportunities to share your feedback with our User Research Team.',\n    openSupportCase: 'Lorem ipsum dolor sit amet Support Case',\n    problemProcessingRequest: \n      'Lorem ipsum dolor sit ametThere was a problem processing the request. Try reloading the page. If the problem persists, contact',\n    support: 'Lorem ipsum dolor sit ametRed Hat support',\n    reportABug: 'Lorem ipsum dolor sit ametReport a bug',\n    responseSent: 'Lorem ipsum dolor sit ametResponse sent',\n    researchOpportunities: 'Lorem ipsum dolor sit ametYes, I would like to hear about research opportunities',\n    shareFeedback: 'Lorem ipsum dolor sit ametShare feedback',\n    shareYourFeedback: 'Lorem ipsum dolor sit ametShare your feedback with us!',\n    somethingWentWrong: 'Lorem ipsum dolor sit ametSomething went wrong',\n    submitFeedback: 'Submit feedback',\n    teamWillReviewBug: 'Lorem ipsum dolor sit ametWe appreciate your feedback and our team will review your report shortly',\n    tellAboutExperience: 'Lorem ipsum dolor sit ametTell us about your experience',\n    thankYouForFeedback: 'Lorem ipsum dolor sit ametThank you, we appreciate your feedback.',\n    thankYouForInterest: \n      'Lorem ipsum dolor sit ametThank you for your interest in user research. You have been added to our mailing list.',\n    userResearchTeam: 'Lorem ipsum dolor sit ametUser Research Team',\n    weNeverSharePersonalInformation: \n      'Lorem ipsum dolor sit ametWe never share your personal information, and you can opt out at any time.',\n  };\n\n\n  /* eslint-disable no-debugger */\nimport React from 'react';\nimport { FeedbackModal} from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\nexport const AdvancedExample: React.FunctionComponent = () => {\n   const  [isOpen, setIsOpen] = React.useState<boolean>(false);\n   const handleButtonClicked = () => {setIsOpen(true)}; \n   return <>\n    <Button onClick={handleButtonClicked}>Show Modal</Button>\n    <FeedbackModal \n        feedbackLocale={i18nExample}\n        email= \"test@redhat.com\" \n        onShareFeedback={()=>\n            // Example of a successful callback\n             true\n        }\n        onJoinMailingList={()=>\n             true\n        }\n        onOpenSupportCase='https://pf-user-feedback-extension-form-demos.surge.sh/requestSupport.html'\n        onReportABug={()=>true}\n        isOpen={isOpen}\n        onClose={()=>setIsOpen(false)}/>\n    </>\n}","title":"Modal with internationalization support","lang":"js","className":""}}>
-      
-      <p {...{"className":"pf-v6-c-content--p ws-p "}}>
-        {`To customize the content displayed in the feedback modal, pass in a custom `}
-        
-        <code {...{"className":"ws-code "}}>
-          {`i18n`}
-        </code>
-        {` object with values for each property of`}
-        
-        <code {...{"className":"ws-code "}}>
-          {`<FeedbackModal>`}
-        </code>
-        {`. This allows you to prepare a modal for different languages and requirements.`}
-      </p>
     </Example>
 };
 
 const Component = () => (
   <React.Fragment>
-    <AutoLinkHeader {...{"id":"about","size":"h2","className":"ws-title ws-h2"}}>
+    <AutoLinkHeader {...{"id":"about","headingLevel":"h2","className":"ws-title ws-h2"}}>
       {`About`}
     </AutoLinkHeader>
     <p {...{"className":"pf-v6-c-content--p ws-p "}}>
       {`The user feedback extension is a PatternFly React based component used to collect user feedback. Examples of how to use this extension are documented below. This extensions allows users to submit feedback, report a bug, request support, as well as join a mailing list to stay updated on the latest news and research opportunities.`}
     </p>
-    <AutoLinkHeader {...{"id":"examples","size":"h2","className":"ws-title ws-h2"}}>
+    <AutoLinkHeader {...{"id":"examples","headingLevel":"h2","className":"ws-title ws-h2"}}>
       {`Examples`}
     </AutoLinkHeader>
     {React.createElement(pageData.examples["Basic modal"])}
     {React.createElement(pageData.examples["Advanced modal"])}
     {React.createElement(pageData.examples["Advanced that autofills an email address"])}
     {React.createElement(pageData.examples["Modal with asynchronous call support"])}
-    {React.createElement(pageData.examples["Modal with internationalization support"])}
   </React.Fragment>
 );
 Component.displayName = 'ExtensionsUserFeedbackReactDocs';

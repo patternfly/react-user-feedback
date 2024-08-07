@@ -1,23 +1,24 @@
 import React, { memo, useState, useRef } from 'react';
 import {
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
-  Flex,
-  FlexItem,
-  Modal,
-  ModalVariant,
-  Panel,
-  PanelFooter,
-  PanelHeader,
-  PanelMain,
-  PanelMainBody,
-  Text,
-  TextContent,
-  TextVariants
+	Button,
+	Card,
+	CardBody,
+	CardHeader,
+	CardTitle,
+	Flex,
+	FlexItem,
+	Panel,
+	PanelFooter,
+	PanelHeader,
+	PanelMain,
+	PanelMainBody,
+	Content,
+	ContentVariants
 } from '@patternfly/react-core';
+import {
+	Modal,
+	ModalVariant
+} from '@patternfly/react-core/deprecated';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 
 import feedbackImage from '../images/pf_feedback.svg';
@@ -82,14 +83,13 @@ export const FeedbackModalInternal = memo(
           return (
             <Panel isScrollable className="chr-c-feedback-content">
               <PanelHeader className="chr-c-feedback-heading">
-                <TextContent>
                   <FlexItem>
-                    <Text component={TextVariants.h1}>{intl.tellAboutExperience}</Text>
+                    <Content component={ContentVariants.h1}>{intl.tellAboutExperience}</Content>
                   </FlexItem>
                   <FlexItem>
-                    <Text>{intl.helpUsImproveHCC}</Text>
+                    <Content component="p">{intl.helpUsImproveHCC}</Content>
                   </FlexItem>
-                </TextContent>
+     
               </PanelHeader>
               <PanelMain tabIndex={0} className='chr-c-feedback-content-main'>
                 <PanelMainBody className="chr-c-feedback-cards">
@@ -160,9 +160,9 @@ export const FeedbackModalInternal = memo(
                         }}
                       ></CardHeader>
                       <CardTitle>
-                        <Text>
+                        <Content component="p">
                           {intl.openSupportCase} <ExternalLinkAltIcon />
-                        </Text>
+                        </Content>
                       </CardTitle>
                       <CardBody>{intl.getSupport}</CardBody>
                     </Card>
@@ -187,10 +187,10 @@ export const FeedbackModalInternal = memo(
                         }}
                       ></CardHeader>
                       <CardTitle>
-                        <Text>
+                        <Content component="p">
                           {intl.informDirection}{' '}
                           {typeof onJoinMailingList === 'string' ? <ExternalLinkAltIcon /> : null}
-                        </Text>
+                        </Content>
                       </CardTitle>
                       <CardBody>{intl.learnAboutResearchOpportunities}</CardBody>
                     </Card>
@@ -248,16 +248,16 @@ export const FeedbackModalInternal = memo(
               handleFeedbackError={() => setModalPage('feedbackError')}
               modalTitle={intl.reportABug}
               modalDescription={
-                <Text>
+                <Content component="p">
                   {intl.describeReportBug}{' '}
-                  <Text
+                  <Content
                     component="a"
                     href="https://access.redhat.com/support/cases/#/case/new/open-case?caseCreate=true"
                     target="_blank"
                   >
                     {intl.openSupportCase} <ExternalLinkAltIcon />
-                  </Text>
-                </Text>
+                  </Content>
+                </Content>
               }
               feedbackType="Bug"
               checkboxDescription={`${intl.learnAboutResearchOpportunities} ${intl.weNeverSharePersonalInformation}`}
@@ -281,13 +281,13 @@ export const FeedbackModalInternal = memo(
               handleFeedbackError={() => setModalPage('feedbackError')}
               modalTitle={intl.informDirection}
               modalDescription={
-                <Text>
+                <Content component="p">
                   {intl.informDirectionDescription}
-                  <Text component="a" href="https://www.redhat.com/en/about/user-research" target="_blank">
+                  <Content component="a" href="https://www.redhat.com/en/about/user-research" target="_blank">
                     {intl.userResearchTeam}
-                  </Text>
+                  </Content>
                   {intl.directInfluence}
-                </Text>
+                </Content>
               }
               feedbackType="[Research Opportunities]"
               textAreaHidden={true}

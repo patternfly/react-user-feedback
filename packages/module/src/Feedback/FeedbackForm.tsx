@@ -8,11 +8,10 @@ import {
   Checkbox,
   Form,
   FormGroup,
-  Text,
   TextArea,
-  TextContent,
+  Content,
   TextInput,
-  TextVariants,
+  ContentVariants,
   ValidatedOptions
 } from '@patternfly/react-core';
 import { LocaleContext } from '../context/LocaleContext';
@@ -88,10 +87,10 @@ export const FeedbackForm = ({
   };
   return (
     <div className="chr-c-feedback-content">
-      <TextContent className="chr-c-feedback-heading">
-        <Text component={TextVariants.h1}>{modalTitle}</Text>
+      <div className="chr-c-feedback-heading">
+        <Content component={ContentVariants.h1}>{modalTitle}</Content>
         {modalDescription}
-      </TextContent>
+      </div>
       <Form className="chr-c-feedback-content-main">
         {textAreaHidden ? (
           ''

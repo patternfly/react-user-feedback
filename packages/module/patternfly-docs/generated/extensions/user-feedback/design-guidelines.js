@@ -40,7 +40,7 @@ const Component = () => (
       </strong>
       {` is a modal component that products can use to collect asynchronous feedback from users.`}
     </p>
-    <AutoLinkHeader {...{"id":"elements","size":"h2","className":"ws-title ws-h2"}}>
+    <AutoLinkHeader {...{"id":"elements","headingLevel":"h2","className":"ws-title ws-h2"}}>
       {`Elements`}
     </AutoLinkHeader>
     <p {...{"className":"pf-v6-c-content--p ws-p "}}>
@@ -76,7 +76,7 @@ const Component = () => (
     <p {...{"className":"pf-v6-c-content--p ws-p "}}>
       {`Each of these elements can be customized to fit a product's needs.`}
     </p>
-    <AutoLinkHeader {...{"id":"behavior","size":"h2","className":"ws-title ws-h2"}}>
+    <AutoLinkHeader {...{"id":"behavior","headingLevel":"h2","className":"ws-title ws-h2"}}>
       {`Behavior`}
     </AutoLinkHeader>
     <p {...{"className":"pf-v6-c-content--p ws-p "}}>
@@ -89,10 +89,10 @@ const Component = () => (
       <img src={srcImport1} width={srcImport1.width} height={srcImport1.height} {...{"alt":"Image of expanded dropdown menu with link to sharing feedback","className":"ws-img "}}>
       </img>
     </p>
-    <AutoLinkHeader {...{"id":"variations","size":"h2","className":"ws-title ws-h2"}}>
+    <AutoLinkHeader {...{"id":"variations","headingLevel":"h2","className":"ws-title ws-h2"}}>
       {`Variations`}
     </AutoLinkHeader>
-    <AutoLinkHeader {...{"id":"modal-items-open-forms-within-the-modal","size":"h3","className":"ws-title ws-h3"}}>
+    <AutoLinkHeader {...{"id":"modal-items-open-forms-within-the-modal","headingLevel":"h3","className":"ws-title ws-h3"}}>
       {`Modal items open forms within the modal`}
     </AutoLinkHeader>
     <p {...{"className":"pf-v6-c-content--p ws-p "}}>
@@ -139,7 +139,7 @@ const Component = () => (
         </p>
       </li>
     </ul>
-    <AutoLinkHeader {...{"id":"modal-items-link-to-external-urls","size":"h3","className":"ws-title ws-h3"}}>
+    <AutoLinkHeader {...{"id":"modal-items-link-to-external-urls","headingLevel":"h3","className":"ws-title ws-h3"}}>
       {`Modal items link to external URLs`}
     </AutoLinkHeader>
     <p {...{"className":"pf-v6-c-content--p ws-p "}}>

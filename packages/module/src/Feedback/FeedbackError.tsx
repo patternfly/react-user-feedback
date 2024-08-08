@@ -3,8 +3,6 @@ import { Button, Content, ContentVariants } from '@patternfly/react-core';
 import ErrorIcon from '@patternfly/react-icons/dist/esm/icons/error-circle-o-icon';
 import { LocaleContext } from '../context/LocaleContext';
 
-import './Feedback.scss';
-
 export interface FeedbackErrorProps {
   onCloseModal: () => void;
 }

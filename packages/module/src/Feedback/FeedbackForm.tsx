@@ -16,8 +16,6 @@ import {
 } from '@patternfly/react-core';
 import { LocaleContext } from '../context/LocaleContext';
 
-import './Feedback.scss';
-
 export interface FeedbackFormProps {
   email?: string;
   onCloseModal: () => void;

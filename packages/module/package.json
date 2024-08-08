@@ -9,19 +9,18 @@
     "tag": "alpha"
   },
   "scripts": {
-    "build": "yarn build:js && yarn build:esm && yarn build:fed:packages && yarn copy:files:esm && yarn copy:files:cjs",
-    "build:esm": "tsc --build --verbose ./tsconfig.json && yarn build:css && yarn transform:css",
-    "build:css": "node ../../scripts/build-styles.js",
+    "build": "yarn build:js && yarn build:esm && yarn build:fed:packages && yarn copy:files:esm && yarn copy:files:cjs && yarn copy:files:css",
+    "build:esm": "tsc --build --verbose ./tsconfig.json",
     "build:fed:packages": "node generate-fed-package-json.js",
     "build:js": "tsc -p tsconfig.cjs.json",
     "copy:files:esm": "copyfiles -u 1 src/**/*.svg src/**/*.json ./dist/esm",
     "copy:files:cjs": "copyfiles -u 1 src/**/*.svg src/**/*.json ./dist/cjs",
+    "copy:files:css": "copyfiles -u 1 src/Feedback/Feedback.css ./dist/esm",
     "clean": "rimraf dist",
     "docs:develop": "pf-docs-framework start",
     "docs:build": "pf-docs-framework build all --output public",
     "docs:serve": "pf-docs-framework serve public --port 5001",
     "docs:screenshots": "pf-docs-framework screenshots --urlPrefix http://localhost:5001",
-    "transform:css": "node ../../scripts/transform-scss.js",
     "test:a11y": "patternfly-a11y --config patternfly-a11y.config",
     "serve:a11y": "yarn serve coverage"
   },

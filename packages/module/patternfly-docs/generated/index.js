@@ -2,8 +2,8 @@ module.exports = {
   '/extensions/user-feedback/react': {
     id: "User feedback",
     title: "User feedback",
-    toc: [{"text":"About"},{"text":"Examples"},[{"text":"Basic modal"},{"text":"Advanced modal"},{"text":"Advanced that autofills an email address"},{"text":"Modal with asynchronous call support"}]],
-    examples: ["Basic modal","Advanced modal","Advanced that autofills an email address","Modal with asynchronous call support"],
+    toc: [{"text":"About"},{"text":"Examples"},[{"text":"Basic modal"},{"text":"Advanced modal"},{"text":"Advanced that autofills an email address"},{"text":"Modal with asynchronous call support"},{"text":"Modal with internationalization support"}]],
+    examples: ["Basic modal","Advanced modal","Advanced that autofills an email address","Modal with asynchronous call support","Modal with internationalization support"],
     section: "extensions",
     subsection: "",
     source: "react",

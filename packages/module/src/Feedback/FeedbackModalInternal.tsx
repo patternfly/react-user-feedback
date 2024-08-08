@@ -1,24 +1,21 @@
 import React, { memo, useState, useRef } from 'react';
 import {
-	Button,
-	Card,
-	CardBody,
-	CardHeader,
-	CardTitle,
-	Flex,
-	FlexItem,
-	Panel,
-	PanelFooter,
-	PanelHeader,
-	PanelMain,
-	PanelMainBody,
-	Content,
-	ContentVariants
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  CardTitle,
+  Flex,
+  FlexItem,
+  Panel,
+  PanelFooter,
+  PanelHeader,
+  PanelMain,
+  PanelMainBody,
+  Content,
+  ContentVariants
 } from '@patternfly/react-core';
-import {
-	Modal,
-	ModalVariant
-} from '@patternfly/react-core/deprecated';
+import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 
 import feedbackImage from '../images/pf_feedback.svg';
@@ -27,7 +24,6 @@ import FeedbackSuccess from './FeedbackSuccess';
 import FeedbackError from './FeedbackError';
 import { FeedbackModalProps } from './FeedbackModal';
 
-import './Feedback.scss';
 import { LocaleContext } from '../context/LocaleContext';
 
 export type FeedbackPages =
@@ -83,21 +79,16 @@ export const FeedbackModalInternal = memo(
           return (
             <Panel isScrollable className="chr-c-feedback-content">
               <PanelHeader className="chr-c-feedback-heading">
-                  <FlexItem>
-                    <Content component={ContentVariants.h1}>{intl.tellAboutExperience}</Content>
-                  </FlexItem>
-                  <FlexItem>
-                    <Content component="p">{intl.helpUsImproveHCC}</Content>
-                  </FlexItem>
-     
+                <FlexItem>
+                  <Content component={ContentVariants.h1}>{intl.tellAboutExperience}</Content>
+                </FlexItem>
+                <FlexItem>
+                  <Content component="p">{intl.helpUsImproveHCC}</Content>
+                </FlexItem>
               </PanelHeader>
-              <PanelMain tabIndex={0} className='chr-c-feedback-content-main'>
+              <PanelMain tabIndex={0} className="chr-c-feedback-content-main">
                 <PanelMainBody className="chr-c-feedback-cards">
-                  <Card
-                    isCompact
-                    isClickable
-                    variant="secondary"
-                  >
+                  <Card isCompact isClickable variant="secondary">
                     <CardHeader
                       selectableActions={{
                         // eslint-disable-next-line no-console
@@ -106,7 +97,7 @@ export const FeedbackModalInternal = memo(
                             ? window.open(onShareFeedback, '_blank')
                             : setModalPage('feedbackOne');
                         },
-                        selectableActionId: "feedback-card-1",
+                        selectableActionId: 'feedback-card-1',
                         selectableActionAriaLabelledby: 'feedback-card-1',
                         name: 'feedback-card'
                       }}
@@ -117,24 +108,20 @@ export const FeedbackModalInternal = memo(
                     <CardBody>{intl.howIsConsoleExperience} </CardBody>
                   </Card>
                   {onReportABug && (
-                    <Card
-                      isCompact
-                      isClickable
-                      variant='secondary'
-                    >
-                    <CardHeader
-                      selectableActions={{
-                        // eslint-disable-next-line no-console
-                        onClickAction: () => {
-                          typeof onReportABug === 'string'
-                            ? window.open(onReportABug, '_blank')
-                            : setModalPage('reportBugOne');
-                        },
-                        selectableActionId: "report-bug-card-1",
-                        selectableActionAriaLabelledby: 'report-bug-card-1',
-                        name: 'report-bug-card'
-                      }}
-                    ></CardHeader>
+                    <Card isCompact isClickable variant="secondary">
+                      <CardHeader
+                        selectableActions={{
+                          // eslint-disable-next-line no-console
+                          onClickAction: () => {
+                            typeof onReportABug === 'string'
+                              ? window.open(onReportABug, '_blank')
+                              : setModalPage('reportBugOne');
+                          },
+                          selectableActionId: 'report-bug-card-1',
+                          selectableActionAriaLabelledby: 'report-bug-card-1',
+                          name: 'report-bug-card'
+                        }}
+                      ></CardHeader>
 
                       <CardTitle>
                         {intl.reportABug} {typeof onReportABug === 'string' ? <ExternalLinkAltIcon /> : null}{' '}
@@ -143,18 +130,14 @@ export const FeedbackModalInternal = memo(
                     </Card>
                   )}
                   {onOpenSupportCase && (
-                    <Card
-                      isCompact
-                      isClickable
-                      variant="secondary"
-                    >
+                    <Card isCompact isClickable variant="secondary">
                       <CardHeader
                         selectableActions={{
                           // eslint-disable-next-line no-console
                           onClickAction: () => {
                             window.open(onOpenSupportCase, '_blank');
                           },
-                          selectableActionId: "open-support-case-card-1",
+                          selectableActionId: 'open-support-case-card-1',
                           selectableActionAriaLabelledby: 'open-support-case-card-1',
                           name: 'open-support-case-card'
                         }}
@@ -168,11 +151,7 @@ export const FeedbackModalInternal = memo(
                     </Card>
                   )}
                   {onJoinMailingList && (
-                    <Card
-                      isCompact
-                      isClickable
-                      variant="secondary"
-                    >
+                    <Card isCompact isClickable variant="secondary">
                       <CardHeader
                         selectableActions={{
                           // eslint-disable-next-line no-console
@@ -181,7 +160,7 @@ export const FeedbackModalInternal = memo(
                               ? window.open(onJoinMailingList, '_blank')
                               : setModalPage('informDirection');
                           },
-                          selectableActionId: "join-mailing-list-card-1",
+                          selectableActionId: 'join-mailing-list-card-1',
                           selectableActionAriaLabelledby: 'join-mailing-list-card-1',
                           name: 'join-mailing-list-card'
                         }}
@@ -198,12 +177,7 @@ export const FeedbackModalInternal = memo(
                 </PanelMainBody>
               </PanelMain>
               <PanelFooter className="chr-c-feedback-footer">
-                <Button
-                  ouiaId="cancel-feedback"
-                  key="cancel"
-                  variant="link"
-                  onClick={handleCloseModal}
-                >
+                <Button ouiaId="cancel-feedback" key="cancel" variant="link" onClick={handleCloseModal}>
                   {intl.cancel}
                 </Button>
               </PanelFooter>

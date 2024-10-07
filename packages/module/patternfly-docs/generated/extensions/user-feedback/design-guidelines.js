@@ -1,11 +1,11 @@
 import React from 'react';
 import { AutoLinkHeader, Example, Link as PatternflyThemeLink } from '@patternfly/documentation-framework/components';
-import srcImport6 from '../../../content/design-guidelines/./img/advanced-user-feedback.png';
-import srcImport7 from '../../../content/design-guidelines/./img/dropdown-selection.png';
-import srcImport8 from '../../../content/design-guidelines/./img/share-feedback.png';
-import srcImport9 from '../../../content/design-guidelines/./img/report-bug.png';
-import srcImport10 from '../../../content/design-guidelines/./img/research-opportunities.png';
-import srcImport11 from '../../../content/design-guidelines/./img/user-feedback-external-links.png';
+import srcImport0 from '../../../content/design-guidelines/./img/advanced-user-feedback.png';
+import srcImport1 from '../../../content/design-guidelines/./img/dropdown-selection.png';
+import srcImport2 from '../../../content/design-guidelines/./img/share-feedback.png';
+import srcImport3 from '../../../content/design-guidelines/./img/report-bug.png';
+import srcImport4 from '../../../content/design-guidelines/./img/research-opportunities.png';
+import srcImport5 from '../../../content/design-guidelines/./img/user-feedback-external-links.png';
 const pageData = {
   "id": "User feedback",
   "section": "extensions",
@@ -44,7 +44,7 @@ const Component = () => (
       {`Elements`}
     </AutoLinkHeader>
     <p {...{"className":"pf-v6-c-content--p pf-m-editorial ws-p "}}>
-      <img src={srcImport6} width={srcImport6.width} height={srcImport6.height} {...{"alt":"Image of advanced feedback modal with annotations","className":"ws-img "}}>
+      <img src={srcImport0} width={srcImport0.width} height={srcImport0.height} {...{"alt":"Image of advanced feedback modal with annotations","className":"ws-img "}}>
       </img>
     </p>
     <ol {...{"className":"pf-v6-c-content--ol pf-m-editorial ws-ol "}}>
@@ -86,7 +86,7 @@ const Component = () => (
       {`For example, you can allow users to access the modal by selecting a masthead’s help icon and choosing “Share feedback” in the dropdown menu:`}
     </p>
     <p {...{"className":"pf-v6-c-content--p pf-m-editorial ws-p "}}>
-      <img src={srcImport7} width={srcImport7.width} height={srcImport7.height} {...{"alt":"Image of expanded dropdown menu with link to sharing feedback","className":"ws-img "}}>
+      <img src={srcImport1} width={srcImport1.width} height={srcImport1.height} {...{"alt":"Image of expanded dropdown menu with link to sharing feedback","className":"ws-img "}}>
       </img>
     </p>
     <AutoLinkHeader {...{"id":"variations","headingLevel":"h2","className":"ws-title ws-h2"}}>
@@ -110,7 +110,7 @@ const Component = () => (
           {`The general feedback form allows users to enter feedback into a text box and submit.`}
         </p>
         <p {...{"className":"pf-v6-c-content--p pf-m-editorial ws-p "}}>
-          <img src={srcImport8} width={srcImport8.width} height={srcImport8.height} {...{"alt":"Image of a form  within a  modal to share feedback","className":"ws-img "}}>
+          <img src={srcImport2} width={srcImport2.width} height={srcImport2.height} {...{"alt":"Image of a form  within a  modal to share feedback","className":"ws-img "}}>
           </img>
         </p>
       </li>
@@ -122,7 +122,7 @@ const Component = () => (
           {`The bug report form allows users to enter feedback into a text box and submit. Its description directs users to a URL where they can submit a support ticket for critical issues.`}
         </p>
         <p {...{"className":"pf-v6-c-content--p pf-m-editorial ws-p "}}>
-          <img src={srcImport9} width={srcImport9.width} height={srcImport9.height} {...{"alt":"Image of a form within a modal to report bugs","className":"ws-img "}}>
+          <img src={srcImport3} width={srcImport3.width} height={srcImport3.height} {...{"alt":"Image of a form within a modal to report bugs","className":"ws-img "}}>
           </img>
         </p>
       </li>
@@ -134,7 +134,7 @@ const Component = () => (
           {`The user research opt-in form allows users to enter their email address to participate in future research efforts.`}
         </p>
         <p {...{"className":"pf-v6-c-content--p pf-m-editorial ws-p "}}>
-          <img src={srcImport10} width={srcImport10.width} height={srcImport10.height} {...{"alt":"Image of a form within a modal to sign up for research opportunities","className":"ws-img "}}>
+          <img src={srcImport4} width={srcImport4.width} height={srcImport4.height} {...{"alt":"Image of a form within a modal to sign up for research opportunities","className":"ws-img "}}>
           </img>
         </p>
       </li>
@@ -146,7 +146,7 @@ const Component = () => (
       {`Selecting an item redirects users to an external URL (like a qualtrics form) that opens in a separate tab.`}
     </p>
     <p {...{"className":"pf-v6-c-content--p pf-m-editorial ws-p "}}>
-      <img src={srcImport11} width={srcImport11.width} height={srcImport11.height} {...{"alt":"Image of modal with links to external forms","className":"ws-img "}}>
+      <img src={srcImport5} width={srcImport5.width} height={srcImport5.height} {...{"alt":"Image of modal with links to external forms","className":"ws-img "}}>
       </img>
     </p>
   </React.Fragment>

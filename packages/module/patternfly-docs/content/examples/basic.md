@@ -1,3 +1,5 @@
+sourceLink: https://github.com/patternfly/react-user-feedback/blob/c0c51c751abf0b798f511806409f25d2a2e87a60/packages/module/patternfly-docs/content/examples/basic.md
+
 ---
 # Sidenav top-level section
 # should be the same for all markdown files

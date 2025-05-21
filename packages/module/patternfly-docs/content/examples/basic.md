@@ -53,7 +53,7 @@ The following example demonstrates how to use the `async` function to send data 
 ```
 
 ### Modal with internationalization support
-To customize the content displayed in the feedback modal, pass in a custom `i18n` object with values for each property of`<FeedbackModal>`. This allows you to prepare a modal for different languages and requirements.
+To customize the content displayed in the feedback modal, pass in a custom `i18n` object with values for each property of `<FeedbackModal>`. This allows you to prepare a modal for different languages and requirements.
 ```js file="./i18n.tsx"
 
 ``` 

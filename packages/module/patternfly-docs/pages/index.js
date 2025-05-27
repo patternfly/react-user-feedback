@@ -1,4 +1,3 @@
-import React from 'react';
 import { Title, PageSection } from '@patternfly/react-core';
 
 const centerStyle = {
@@ -10,7 +9,7 @@ const centerStyle = {
 
 const IndexPage = () => {
   return (
-    <PageSection  style={centerStyle}>
+    <PageSection style={centerStyle}>
       <div style={{ flex: 'none', textAlign: 'center' }}>
         <Title size="4xl" headingLevel="h1">
           My extension docs

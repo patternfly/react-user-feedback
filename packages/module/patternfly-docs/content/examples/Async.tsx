@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-import React from 'react';
+import { FunctionComponent, useState } from 'react';
 import { FeedbackModal} from '@patternfly/react-user-feedback';
 import { Button } from '@patternfly/react-core';
 
-export const AsyncExample: React.FunctionComponent = () => {
-   const  [isOpen, setIsOpen] = React.useState<boolean>(false);
+export const AsyncExample: FunctionComponent = () => {
+   const  [isOpen, setIsOpen] = useState<boolean>(false);
 
    const fakeNetworkCall = (email:string, feedback:string, bug:string) => new Promise<boolean>(resolve => {
       setTimeout(() => {

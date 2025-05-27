@@ -36,8 +36,8 @@
     "@patternfly/react-icons": "^6.0.0"
   },
   "peerDependencies": {
-    "react": "^17 || ^18",
-    "react-dom": "^17 || ^18"
+    "react": "^17 || ^18 || ^19",
+    "react-dom": "^17 || ^18 || ^19"
   },
   "devDependencies": {
     "copyfiles": "2.4.1",

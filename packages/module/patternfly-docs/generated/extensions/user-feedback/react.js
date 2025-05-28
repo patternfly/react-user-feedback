@@ -15,7 +15,7 @@ const pageData = {
   "source": "react",
   "tabName": null,
   "slug": "/extensions/user-feedback/react",
-  "sourceLink": "https://github.com/patternfly/patternfly-react/blob/main/packages/module/patternfly-docs/content/examples/basic.md",
+  "sourceLink": "https://github.com/patternfly/react-user-feedback/blob/c0c51c751abf0b798f511806409f25d2a2e87a60/packages/module/patternfly-docs/content/examples/basic.md",
   "relPath": "packages/module/patternfly-docs/content/examples/basic.md",
   "propComponents": [
     {
@@ -150,7 +150,7 @@ The following example demonstrates how to use the `}
         <code {...{"className":"ws-code "}}>
           {`i18n`}
         </code>
-        {` object with values for each property of`}
+        {` object with values for each property of `}
         
         <code {...{"className":"ws-code "}}>
           {`<FeedbackModal>`}

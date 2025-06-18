@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
-import React from 'react';
+import { FunctionComponent, useState } from 'react';
 import { FeedbackModal} from '@patternfly/react-user-feedback';
 import { Button } from '@patternfly/react-core';
 import feedbackImage from '@patternfly/react-user-feedback/dist/esm/images/rh_feedback.svg';
 
-export const AdvancedStaticEmailExample: React.FunctionComponent = () => {
-   const  [isOpen, setIsOpen] = React.useState<boolean>(false);
+export const AdvancedStaticEmailExample: FunctionComponent = () => {
+   const  [isOpen, setIsOpen] = useState<boolean>(false);
    const handleButtonClicked = () => {setIsOpen(true)}; 
    return <>
     <Button onClick={handleButtonClicked}>Show Modal</Button>

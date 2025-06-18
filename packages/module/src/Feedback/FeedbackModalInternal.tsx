@@ -1,4 +1,4 @@
-import React, { memo, useState, useRef } from 'react';
+import { useContext, Fragment, memo, useState, useRef } from 'react';
 import {
   Button,
   Card,
@@ -47,7 +47,7 @@ export const FeedbackModalInternal = memo(
     onClose,
     feedbackImg
   }: FeedbackModalProps) => {
-    const intl = React.useContext(LocaleContext);
+    const intl = useContext(LocaleContext);
 
     const emailRef = useRef<string>(email ? email : '');
     const [modalPage, setModalPage] = useState<FeedbackPages>('feedbackHome');
@@ -299,7 +299,7 @@ export const FeedbackModalInternal = memo(
     };
 
     return (
-      <React.Fragment>
+      <Fragment>
         <Modal
           aria-label="Feedback modal"
           isOpen={isOpen}
@@ -321,7 +321,7 @@ export const FeedbackModalInternal = memo(
             </FlexItem>
           </Flex>
         </Modal>
-      </React.Fragment>
+      </Fragment>
     );
   }
 );

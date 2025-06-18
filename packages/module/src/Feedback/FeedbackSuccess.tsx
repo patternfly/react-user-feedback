@@ -1,4 +1,4 @@
-import React from 'react';
+import { useContext } from 'react';
 import { Button, Content, ContentVariants } from '@patternfly/react-core';
 import CheckIcon from '@patternfly/react-icons/dist/js/icons/check-icon';
 
@@ -11,7 +11,7 @@ export interface FeedbackSuccessProps {
 }
 
 const FeedbackSuccess = ({ onCloseModal, successTitle, successDescription }: FeedbackSuccessProps) => {
-  const intl = React.useContext(LocaleContext);
+  const intl = useContext(LocaleContext);
   return (
     <div className="chr-c-feedback-success-content">
       <CheckIcon color="var(--pf-global--success-color--100)" className="pf-u-mx-auto" />

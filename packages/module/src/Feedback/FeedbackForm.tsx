@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import { useContext, ReactNode, useState } from 'react';
 import {
   ActionList,
   ActionListGroup,
@@ -45,7 +45,7 @@ export const FeedbackForm = ({
   textAreaHidden = false,
   submitTitle
 }: FeedbackFormProps) => {
-  const intl = React.useContext(LocaleContext);
+  const intl = useContext(LocaleContext);
   const [currentEmail, setCurrentEmail] = useState(email ? email : '');
   const [textAreaValue, setTextAreaValue] = useState('');
   const [emailValid, setEmailValid] = useState(ValidatedOptions.default);

@@ -1,0 +1,48 @@
+# Bookmarks
+
+Progressive disclosure for task-specific documentation and references.
+
+## Table of Contents
+- [PatternFly Documentation](#patternfly-documentation)
+- [Design & Guidelines](#design--guidelines)
+- [Development Resources](#development-resources)
+
+---
+
+## PatternFly Documentation
+
+### [PatternFly 6 React Docs](https://www.patternfly.org/)
+
+Official PatternFly 6 React component documentation and API reference.
+
+**Added by**: Initial setup | **Date**: 2026-03-18
+
+### [PatternFly MCP Server](https://www.npmjs.com/package/@patternfly/patternfly-mcp)
+
+MCP server for PatternFly development rules and documentation - use with Ambient/Claude for inline guidance.
+
+**Added by**: Initial setup | **Date**: 2026-03-18
+
+---
+
+## Design & Guidelines
+
+### [Design Guidelines (Local)](./packages/module/patternfly-docs/content/design-guidelines/)
+
+Local design guidelines provided by PatternFly team for this extension.
+
+**Added by**: Initial setup | **Date**: 2026-03-18 | **Note**: Authoritative source for UX patterns
+
+---
+
+## Development Resources
+
+### [Component Examples (Local)](./packages/module/patternfly-docs/content/examples/)
+
+Live code examples and markdown documentation for all components in this extension.
+
+**Added by**: Initial setup | **Date**: 2026-03-18 | **Note**: Start with URL.tsx for basic usage
+
+---
+
+**Tip**: Use `/bookmark <url> <description>` in Ambient to add to this list collaboratively with your team.

@@ -1,6 +1,6 @@
 # react-user-feedback
 
-A React component library for collecting user feedback via a form in a modal. Built with React, TypeScript, PatternFly, and Webpack.
+A React component library for collecting user feedback via a form in a modal. Built with React, TypeScript, and PatternFly; the library builds with **TypeScript (`tsc`)**, and local extension docs use the **PatternFly documentation framework** (`pf-docs-framework`).
 
 ## Structure
 
@@ -25,9 +25,9 @@ This repo is a **Yarn workspaces** monorepo. The **shipped library** is **`@patt
 
 ```bash
 yarn build          # Build the library
-yarn test           # Run Jest for packages/
+yarn test           # Run Jest for packages/ (passes with no tests until you add *.test.* / __tests__; uses --passWithNoTests)
 yarn lint           # Lint all of packages/ (like CI)
-yarn lint-staged    # What Husky runs on commit: Prettier + ESLint + jest --findRelatedTests on staged files only
+yarn lint-staged    # What Husky runs on commit: Prettier + ESLint + jest --findRelatedTests --passWithNoTests on staged files only
 ```
 
 For accessibility testing:

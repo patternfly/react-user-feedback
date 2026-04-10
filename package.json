@@ -19,7 +19,7 @@
     "lint:markdownlint": "markdownlint --dot -p .markdownlintignore \"**/*.md\"",
     "lint": "yarn lint:js && yarn lint:md && yarn lint:markdownlint",
     "lint-staged": "lint-staged",
-    "test": "TZ=EST jest packages",
+    "test": "TZ=EST jest packages --passWithNoTests",
     "test:a11y": "yarn workspace @patternfly/react-user-feedback test:a11y",
     "serve:a11y": "yarn workspace @patternfly/react-user-feedback serve:a11y",
     "prepare": "husky install"

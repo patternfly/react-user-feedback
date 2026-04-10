@@ -17,7 +17,7 @@ yarn build
 
 **Lint:** **`yarn lint`** — ESLint for JS/TS and Markdown under `packages/` (see `package.json` for `lint:js` / `lint:md` / `lint:markdownlint`).
 
-**Unit tests:** Jest uses `jest.setup.js`; tests live under `packages/`. Run **`yarn test`**. **Husky** runs **`lint-staged`** on commit; on staged `packages/**/*.{js,jsx,ts,tsx}` it runs Prettier, ESLint, and **`jest --findRelatedTests`**.
+**Unit tests:** Jest uses `jest.setup.js` at the repo root; add tests under `packages/` (e.g. `*.test.*` or `__tests__/`). Run **`yarn test`** — it uses **`--passWithNoTests`** so CI stays green until tests exist. **Husky** runs **`lint-staged`** on commit; on staged `packages/**/*.{js,jsx,ts,tsx}` it runs Prettier, ESLint, and **`jest --findRelatedTests`** (with **`--passWithNoTests`**).
 
 **Accessibility:** use two terminals — (1) `yarn build:docs && yarn serve:docs` (2) `yarn test:a11y`. **`yarn serve:a11y`** opens the generated a11y report after tests.
 

@@ -45,6 +45,18 @@ Why the library lives under `packages/module/` instead of a root `src/` / `tests
 
 **Added by**: AgentReady remediation | **Date**: 2026-04-09
 
+### [ADR 0002 — Jest at the workspace root](./docs/adr/0002-unit-testing-with-jest.md)
+
+Jest config at the repo root, `yarn test` / `--passWithNoTests`, and lint-staged related tests.
+
+**Added by**: AgentReady remediation | **Date**: 2026-04-10
+
+### [ADR 0003 — CI PR checks (reusable workflow)](./docs/adr/0003-ci-pr-checks-via-reusable-workflow.md)
+
+PR checks via `check-pr` calling the reusable `build-lint-test` workflow.
+
+**Added by**: AgentReady remediation | **Date**: 2026-04-10
+
 ---
 
 ## Development Resources

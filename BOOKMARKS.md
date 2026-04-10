@@ -3,8 +3,10 @@
 Progressive disclosure for task-specific documentation and references.
 
 ## Table of Contents
+
 - [PatternFly Documentation](#patternfly-documentation)
 - [Design & Guidelines](#design--guidelines)
+- [Architecture decisions](#architecture-decisions)
 - [Development Resources](#development-resources)
 
 ---
@@ -32,6 +34,16 @@ MCP server for PatternFly development rules and documentation - use with Ambient
 Local design guidelines provided by PatternFly team for this extension.
 
 **Added by**: Initial setup | **Date**: 2026-03-18 | **Note**: Authoritative source for UX patterns
+
+---
+
+## Architecture decisions
+
+### [ADR 0001 — Monorepo layout (local)](./docs/adr/0001-monorepo-layout-packages-module.md)
+
+Why the library lives under `packages/module/` instead of a root `src/` / `tests/` layout.
+
+**Added by**: AgentReady remediation | **Date**: 2026-04-09
 
 ---
 

@@ -1,0 +1,55 @@
+name: Feature request
+description: Suggest an improvement or new capability for the User feedback extension
+title: '[User feedback] - [short description]'
+type: feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share enough context for maintainers to evaluate fit with PatternFly and this extension.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the extension is this about?
+      options:
+        - Modal / feedback flow
+        - Forms (feedback, bug report, mailing list)
+        - Locales / i18n
+        - Documentation or examples
+        - Build / tooling
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What are you trying to achieve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Ideas, API shape, or UX notes.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
+
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility (optional)
+      description: Any specific a11y requirements?
+    validations:
+      required: false

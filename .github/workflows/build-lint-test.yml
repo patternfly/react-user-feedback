@@ -2,6 +2,15 @@ name: build-lint-test
 on:
   workflow_call:
 jobs:
+  actionlint:
+    name: Lint workflow YAML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download actionlint
+        run: curl -fsSL https://raw.githubusercontent.com/rhysd/actionlint/v1.7.7/scripts/download-actionlint.bash | bash -s -- 1.7.7
+      - name: Run actionlint
+        run: ./actionlint -color
   build:
     runs-on: ubuntu-latest
     env:
@@ -14,7 +23,7 @@ jobs:
             git fetch origin pull/$GH_PR_NUM/head:tmp
             git checkout tmp
           fi
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - uses: actions/cache@v4
@@ -22,8 +31,8 @@ jobs:
         name: Cache npm deps
         with:
           path: |
-           node_modules
-           **/node_modules
+            node_modules
+            **/node_modules
           key: ${{ runner.os }}-yarn-14-${{ secrets.CACHE_VERSION }}-${{ hashFiles('yarn.lock') }}
       - run: yarn install --frozen-lockfile
         if: steps.yarn-cache.outputs.cache-hit != 'true'
@@ -50,7 +59,7 @@ jobs:
             git fetch origin pull/$GH_PR_NUM/head:tmp
             git checkout tmp
           fi
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - uses: actions/cache@v4
@@ -58,8 +67,8 @@ jobs:
         name: Cache npm deps
         with:
           path: |
-           node_modules
-           **/node_modules
+            node_modules
+            **/node_modules
           key: ${{ runner.os }}-yarn-14-${{ secrets.CACHE_VERSION }}-${{ hashFiles('yarn.lock') }}
       - run: yarn install --frozen-lockfile
         if: steps.yarn-cache.outputs.cache-hit != 'true'
@@ -87,7 +96,7 @@ jobs:
             git fetch origin pull/$GH_PR_NUM/head:tmp
             git checkout tmp
           fi
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - uses: actions/cache@v4
@@ -95,9 +104,9 @@ jobs:
         name: Cache npm deps
         with:
           path: |
-           node_modules
-           **/node_modules
-           ~/.cache/Cypress
+            node_modules
+            **/node_modules
+            ~/.cache/Cypress
           key: ${{ runner.os }}-yarn-14-${{ secrets.CACHE_VERSION }}-${{ hashFiles('yarn.lock') }}
       - run: yarn install --frozen-lockfile
         if: steps.yarn-cache.outputs.cache-hit != 'true'
@@ -128,7 +137,7 @@ jobs:
             git fetch origin pull/$GH_PR_NUM/head:tmp
             git checkout tmp
           fi
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - uses: actions/cache@v4
@@ -136,9 +145,9 @@ jobs:
         name: Cache npm deps
         with:
           path: |
-           node_modules
-           **/node_modules
-           ~/.cache/Cypress
+            node_modules
+            **/node_modules
+            ~/.cache/Cypress
           key: ${{ runner.os }}-yarn-14-${{ secrets.CACHE_VERSION }}-${{ hashFiles('yarn.lock') }}
       - run: yarn install --frozen-lockfile
         if: steps.yarn-cache.outputs.cache-hit != 'true'

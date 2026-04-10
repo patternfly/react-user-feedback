@@ -9,9 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          if [[ ! -z "${GH_PR_NUM}" ]]; then 
+          if [[ -n "${GH_PR_NUM}" ]]; then
             echo "Checking out PR"
-            git fetch origin pull/$GH_PR_NUM/head:tmp
+            git fetch origin "pull/${GH_PR_NUM}/head:tmp"
             git checkout tmp
           fi
       - uses: actions/cache@v4

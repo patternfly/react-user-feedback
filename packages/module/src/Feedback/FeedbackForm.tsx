@@ -54,7 +54,7 @@ export const FeedbackForm = ({
   async function handleModalSubmission() {
     try {
       const emailAddress = checked && currentEmail ? currentEmail : '';
-      onSubmit(emailAddress, textAreaValue, checked);
+      await onSubmit(emailAddress, textAreaValue, checked);
     } catch (err) {
       handleFeedbackError();
     }
@@ -93,7 +93,7 @@ export const FeedbackForm = ({
         {textAreaHidden ? (
           ''
         ) : (
-          <FormGroup label={textareaLabel} fieldId="horizontal-form-exp">
+          <FormGroup label={textareaLabel} fieldId="feedback-description-text">
             <TextArea
               value={textAreaValue}
               onChange={(_event, value) => setTextAreaValue(value)}

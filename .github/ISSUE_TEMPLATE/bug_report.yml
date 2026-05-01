@@ -1,0 +1,57 @@
+name: Bug report
+description: Report a problem with the PatternFly User feedback extension
+title: '[User feedback] - [short description]'
+type: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please include enough detail for maintainers to reproduce the issue.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What is going wrong? What did you expect instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. …
+        2. …
+        3. …
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Versions help narrow the issue.
+      placeholder: |
+        - @patternfly/react-user-feedback version:
+        - @patternfly/react-core version:
+        - React version:
+        - Browser:
+    validations:
+      required: false
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Minimal example or code snippet (optional)
+      description: Short snippet or CodeSandbox-style reference if possible.
+    validations:
+      required: false
+
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility (optional)
+      description: Keyboard, screen reader, or focus issues?
+    validations:
+      required: false

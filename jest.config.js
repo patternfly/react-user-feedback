@@ -14,5 +14,6 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/styleMock.js'
   },
   testEnvironment: 'jsdom',
-  setupFiles: ['./jest.setup.js']
+  setupFiles: ['./jest.setup.js'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom']
 };

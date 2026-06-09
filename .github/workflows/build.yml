@@ -38,10 +38,11 @@ jobs:
         name: Cache npm deps
         with:
           path: |
-           node_modules
-           **/node_modules
+            node_modules
+            **/node_modules
           key: ${{ runner.os }}-yarn-14-${{ secrets.CACHE_VERSION }}-${{ hashFiles('yarn.lock') }}
-      - run: yarn install --frozen-lockfile
+      - run: corepack enable
+      - run: yarn install --immutable
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - uses: actions/cache@v4
         id: dist

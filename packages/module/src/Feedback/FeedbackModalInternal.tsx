@@ -7,6 +7,7 @@ import {
   CardTitle,
   Flex,
   FlexItem,
+  Modal,
   Panel,
   PanelFooter,
   PanelHeader,
@@ -15,9 +16,7 @@ import {
   Content,
   ContentVariants
 } from '@patternfly/react-core';
-import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
-import { ExternalLinkAltIcon } from '@patternfly/react-icons';
-
+import RhUiExternalLinkFillIcon from '@patternfly/react-icons/dist/esm/icons/rh-ui-external-link-fill-icon';
 import feedbackImage from '../images/pf_feedback.svg';
 import { FeedbackForm } from './FeedbackForm';
 import FeedbackSuccess from './FeedbackSuccess';
@@ -38,6 +37,7 @@ export type FeedbackPages =
 
 export const FeedbackModalInternal = memo(
   ({
+    'aria-label': ariaLabel = 'Feedback modal',
     email,
     isOpen,
     onShareFeedback,
@@ -45,7 +45,8 @@ export const FeedbackModalInternal = memo(
     onReportABug,
     onOpenSupportCase,
     onClose,
-    feedbackImg
+    feedbackImg,
+    feedbackAlt = 'feedback illustration'
   }: FeedbackModalProps) => {
     const intl = useContext(LocaleContext);
 
@@ -103,7 +104,7 @@ export const FeedbackModalInternal = memo(
                       }}
                     ></CardHeader>
                     <CardTitle>
-                      {intl.shareFeedback} {typeof onShareFeedback === 'string' ? <ExternalLinkAltIcon /> : null}
+                      {intl.shareFeedback} {typeof onShareFeedback === 'string' ? <RhUiExternalLinkFillIcon /> : null}
                     </CardTitle>
                     <CardBody>{intl.howIsConsoleExperience} </CardBody>
                   </Card>
@@ -124,7 +125,7 @@ export const FeedbackModalInternal = memo(
                       ></CardHeader>
 
                       <CardTitle>
-                        {intl.reportABug} {typeof onReportABug === 'string' ? <ExternalLinkAltIcon /> : null}{' '}
+                        {intl.reportABug} {typeof onReportABug === 'string' ? <RhUiExternalLinkFillIcon /> : null}{' '}
                       </CardTitle>
                       <CardBody>{intl.describeBugUrgentCases}</CardBody>
                     </Card>
@@ -144,7 +145,7 @@ export const FeedbackModalInternal = memo(
                       ></CardHeader>
                       <CardTitle>
                         <Content component="p">
-                          {intl.openSupportCase} <ExternalLinkAltIcon />
+                          {intl.openSupportCase} <RhUiExternalLinkFillIcon />
                         </Content>
                       </CardTitle>
                       <CardBody>{intl.getSupport}</CardBody>
@@ -168,7 +169,7 @@ export const FeedbackModalInternal = memo(
                       <CardTitle>
                         <Content component="p">
                           {intl.informDirection}{' '}
-                          {typeof onJoinMailingList === 'string' ? <ExternalLinkAltIcon /> : null}
+                          {typeof onJoinMailingList === 'string' ? <RhUiExternalLinkFillIcon /> : null}
                         </Content>
                       </CardTitle>
                       <CardBody>{intl.learnAboutResearchOpportunities}</CardBody>
@@ -229,7 +230,7 @@ export const FeedbackModalInternal = memo(
                     href="https://access.redhat.com/support/cases/#/case/new/open-case?caseCreate=true"
                     target="_blank"
                   >
-                    {intl.openSupportCase} <ExternalLinkAltIcon />
+                    {intl.openSupportCase} <RhUiExternalLinkFillIcon />
                   </Content>
                 </Content>
               }
@@ -301,12 +302,11 @@ export const FeedbackModalInternal = memo(
     return (
       <Fragment>
         <Modal
-          aria-label="Feedback modal"
+          aria-label={ariaLabel}
           isOpen={isOpen}
-          className="chr-c-feedback-modal"
-          variant={ModalVariant.large}
+          className={`chr-c-feedback-modal ${feedbackImg ? undefined : 'pf-user-feedback-modal-default-image'}`}
+          variant="large"
           onClose={handleCloseModal}
-          hasNoBodyWrapper
         >
           <Flex
             className="chr-c-feedback-flex"
@@ -317,7 +317,7 @@ export const FeedbackModalInternal = memo(
               <ModalDescription modalPage={modalPage} />
             </FlexItem>
             <FlexItem className="chr-c-feedback-image" flex={{ default: 'flex_1' }}>
-              <img alt="feedback illustration" src={feedbackImg ? feedbackImg : feedbackImage} />
+              <img alt={feedbackAlt} src={feedbackImg ? feedbackImg : feedbackImage} />
             </FlexItem>
           </Flex>
         </Modal>

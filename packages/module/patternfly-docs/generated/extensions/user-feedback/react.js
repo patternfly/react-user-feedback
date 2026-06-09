@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoLinkHeader, Example, Link as PatternflyThemeLink } from '@patternfly/documentation-framework/components';
-import { FunctionComponent, useState } from 'react';
+import { useState } from 'react';
 import { FeedbackModal } from "@patternfly/react-user-feedback";
 import feedbackImage from '@patternfly/react-user-feedback/dist/esm/images/rh_feedback.svg';
 const pageData = {
@@ -82,7 +82,6 @@ const pageData = {
   ]
 };
 pageData.liveContext = {
-  FunctionComponent,
   useState,
   FeedbackModal,
   feedbackImage

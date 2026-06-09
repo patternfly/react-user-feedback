@@ -3,6 +3,8 @@ import { defaultFeedback, FeedbackLocale } from '../locales/Locale';
 import { LocaleContext } from '../context/LocaleContext';
 
 export interface FeedbackModalProps {
+  /** Accessible name for the modal as a human readable string. */
+  'aria-label'?: string;
   /** Email address for the user, if none is passed in a user can still enter one in the modal. */
   email?: string;
   /**  If a URL is given the  share feedback link will redirect to another site share feedback.
@@ -25,6 +27,8 @@ export interface FeedbackModalProps {
   onReportABug?: string | ((email: string, bug: string) => boolean | Promise<boolean>);
   /** Feedback image that shows up in the modal */
   feedbackImg?: string;
+  /** Alt text of the feedback image. Must either be a human readable string of text or an empty string. */
+  feedbackAlt?: string;
   /** URL to open a support case */
   onOpenSupportCase?: string;
 }

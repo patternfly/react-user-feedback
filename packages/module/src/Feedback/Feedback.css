@@ -91,4 +91,9 @@
   }
 }
 
+/* Temporary fix for our default image to prevent the button icon from being white in dark mode over a white image */
+:root.pf-v6-theme-dark .pf-user-feedback-modal-default-image .pf-v6-c-modal-box__close .pf-v6-c-button__icon {
+  color: var(--pf-t--color--gray--95);
+}
+
 /*# sourceMappingURL=Feedback.css.map */

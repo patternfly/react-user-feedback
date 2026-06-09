@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoLinkHeader, Example, Link as PatternflyThemeLink } from '@patternfly/documentation-framework/components';
-import { FunctionComponent, useState } from 'react';
+import { useState } from 'react';
 import { FeedbackModal } from "@patternfly/react-user-feedback";
 import feedbackImage from '@patternfly/react-user-feedback/dist/esm/images/rh_feedback.svg';
 const pageData = {
@@ -26,6 +26,11 @@ const pageData = {
           "name": "email",
           "type": "string",
           "description": "Email address for the user, if none is passed in a user can still enter one in the modal."
+        },
+        {
+          "name": "feedbackAlt",
+          "type": "string",
+          "description": "Alt text of the feedback image. Must either be a human readable string of text or an empty string."
         },
         {
           "name": "feedbackImg",
@@ -69,6 +74,11 @@ const pageData = {
           "type": "string | ((email: string, feedback: string) => boolean | Promise<boolean>)",
           "description": "If a URL is given the  share feedback link will redirect to another site share feedback.\nIf a function is provided we will display a share feedback screen with a submit button. The callback function should return a boolean or a Promise if the callback is successful or unsuccessful.",
           "required": true
+        },
+        {
+          "name": "Unknown",
+          "type": "string",
+          "description": "Accessible name for the modal as a human readable string."
         }
       ]
     }
@@ -82,14 +92,13 @@ const pageData = {
   ]
 };
 pageData.liveContext = {
-  FunctionComponent,
   useState,
   FeedbackModal,
   feedbackImage
 };
 pageData.examples = {
   'Basic modal': props => 
-    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal} from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\n\nexport const URLExample: React.FunctionComponent = () => {\n   const  [isOpen, setIsOpen] = React.useState<boolean>(false);\n   const handleButtonClicked = () => {setIsOpen(true)}; \n   return <>\n    <Button onClick={handleButtonClicked}>Show Modal</Button>\n    <FeedbackModal \n        onShareFeedback='https://pf-user-feedback-extension-form-demos.surge.sh/submitFeedback.html' \n        onJoinMailingList='https://pf-user-feedback-extension-form-demos.surge.sh/joinMailingList.html'\n        onOpenSupportCase='https://pf-user-feedback-extension-form-demos.surge.sh/requestSupport.html'\n        onReportABug='https://pf-user-feedback-extension-form-demos.surge.sh/reportBug.html'\n        isOpen={isOpen}\n        onClose={()=>setIsOpen(false)}/>\n    </>\n}","title":"Basic modal","lang":"js","className":""}}>
+    <Example {...pageData} {...props} {...{"code":"import React from 'react';\nimport { FeedbackModal } from '@patternfly/react-user-feedback';\nimport { Button } from '@patternfly/react-core';\n\nexport const URLExample: React.FunctionComponent = () => {\n  const [isOpen, setIsOpen] = React.useState<boolean>(false);\n  const handleButtonClicked = () => {\n    setIsOpen(true);\n  };\n  return (\n    <>\n      <Button onClick={handleButtonClicked}>Show Modal</Button>\n      <FeedbackModal\n        onShareFeedback=\"https://pf-user-feedback-extension-form-demos.surge.sh/submitFeedback.html\"\n        onJoinMailingList=\"https://pf-user-feedback-extension-form-demos.surge.sh/joinMailingList.html\"\n        onOpenSupportCase=\"https://pf-user-feedback-extension-form-demos.surge.sh/requestSupport.html\"\n        onReportABug=\"https://pf-user-feedback-extension-form-demos.surge.sh/reportBug.html\"\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n      />\n    </>\n  );\n};\n","title":"Basic modal","lang":"js","className":""}}>
       
       <p {...{"className":"pf-v6-c-content--p pf-m-editorial ws-p "}}>
         {`To collect data, you can link modal items to external sources instead of a built in form. For example, you can link to a custom form, which will be opened in a new tab.`}

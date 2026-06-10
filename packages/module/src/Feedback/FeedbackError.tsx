@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Button, Content, ContentVariants } from '@patternfly/react-core';
-import ErrorIcon from '@patternfly/react-icons/dist/esm/icons/error-circle-o-icon';
+import RhUiErrorFillIcon from '@patternfly/react-icons/dist/esm/icons/rh-ui-error-fill-icon';
 import { LocaleContext } from '../context/LocaleContext';
 
 export interface FeedbackErrorProps {
@@ -11,7 +11,7 @@ const FeedbackError = ({ onCloseModal }: FeedbackErrorProps) => {
   const intl = useContext(LocaleContext);
   return (
     <div className="chr-c-feedback-success-content">
-      <ErrorIcon color="var(--pf-global--danger-color--100)" className="pf-u-mx-auto" />
+      <RhUiErrorFillIcon className="pf-u-mx-auto" />
       <>
         <Content component={ContentVariants.h1}>{intl.somethingWentWrong}</Content>
         <Content>

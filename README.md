@@ -2,6 +2,17 @@
 
 This project is a [PatternFly](https://github.com/patternfly/patternfly-react) React extension that products can use to collect feedback from users. To view examples of this extension’s use, [view its documentation on PatternFly](https://www.patternfly.org/v4/extensions/user-feedback).
 
+## Repository layout (Yarn workspaces)
+
+This repo uses **[Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)** (`package.json` → `"workspaces": ["packages/*"]`).
+
+| Location | NPM name | Purpose |
+|----------|-----------|---------|
+| Repository root | `@patternfly/react-user-feedback-root` | Workspace root: shared lint/test/build tooling and scripts that delegate into packages. |
+| `packages/module/` | `@patternfly/react-user-feedback` | Library source, `dist/` build output, PatternFly docs site for examples, and release configuration. |
+
+Most product code and docs examples live under **`packages/module/`**. For agent-oriented notes (commands, CI behavior, boundaries), see **[`AGENTS.md`](./AGENTS.md)**.
+
 ## Installing dependencies
 
 [Yarn](https://yarnpkg.com/) is used to develop and build user feedback. To install dependencies for this project, use the `yarn install` terminal command:
@@ -12,7 +23,7 @@ yarn install
 
 ## Building the extension
 
-Once dependencies are installed, you can build user feedback locally using the `yard build` terminal command:
+Once dependencies are installed, you can build user feedback locally using the `yarn build` terminal command (runs the workspace package build):
 
 ```
 yarn build

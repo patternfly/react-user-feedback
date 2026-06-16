@@ -4,6 +4,29 @@ on:
     branches:
       - main
       - v6
+    paths:
+      - 'packages/**'
+      - 'scripts/**'
+      - 'fed-mini-modules.js'
+      - '.gitignore'
+      - 'renovate.json'
+      - 'LICENSE'
+      - 'package.json'
+      - 'yarn.lock'
+      - 'jest.config.js'
+      - 'jest.setup.js'
+      - 'jest.setup-after-env.js'
+      - 'styleMock.js'
+      - 'babel.config.js'
+      - '.eslintrc.json'
+      - '.eslintrc-md.json'
+      - '.eslintignore'
+      - '.prettierrc.json'
+      - '.prettierignore'
+      - '.husky/**'
+      - '.github/workflows/**'
+      - 'AGENTS.md'
+      - 'README.md'
 jobs:
   call-build-lint-test-workflow:
     uses: ./.github/workflows/build-lint-test.yml

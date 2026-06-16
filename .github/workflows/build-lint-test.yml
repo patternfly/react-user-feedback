@@ -1,4 +1,5 @@
 name: build-lint-test
+# PR workflows are path-scoped in check-pr.yml so CI does not run for unrelated-only changes.
 on:
   workflow_call:
 jobs:

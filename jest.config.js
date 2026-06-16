@@ -10,9 +10,14 @@ module.exports = {
   transform: {
     '^.+\\.[jt]sx?$': 'babel-jest'
   },
+  // Transpile @patternfly/* ESM in node_modules; extend the (?!...) group if another
+  // dependency ships untranspiled ESM that Jest must transform.
+  transformIgnorePatterns: ['/node_modules/(?!(@patternfly)/)'],
   moduleNameMapper: {
-    '\\.(css|less)$': '<rootDir>/styleMock.js'
+    '\\.(css|less)$': '<rootDir>/styleMock.js',
+    '\\.svg$': '<rootDir>/styleMock.js'
   },
   testEnvironment: 'jsdom',
-  setupFiles: ['./jest.setup.js']
+  setupFiles: ['./jest.setup.js'],
+  setupFilesAfterEnv: ['./jest.setup-after-env.js']
 };

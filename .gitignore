@@ -13,6 +13,7 @@ coverage
 # package managers
 yarn-error.log
 lerna-debug.log
+.yarn/*
 
 # IDEs and editors
 .idea
